@@ -1,0 +1,68 @@
+.bg-container {
+    width: 100%;
+    height: 0;
+    /* Awalnya 0, akan disesuaikan dengan padding-bottom */
+    padding-bottom: 50.25%;
+    /* Rasio aspek 16:9 (tinggi/lebar * 100%). Sesuaikan jika gambar Anda memiliki rasio yang berbeda */
+    background-image: url('../../assets/images/bg.png');
+    /* Ganti dengan URL gambar Anda */
+    background-size: cover;
+    /* Memastikan gambar menutupi seluruh area */
+    background-position: center;
+    /* Memusatkan gambar */
+    background-repeat: no-repeat;
+    /* Mencegah pengulangan gambar */
+    position: relative;
+    /* Penting untuk posisi konten di dalamnya */
+    overflow: hidden;
+    /* Memastikan gambar tidak meluap */
+}
+
+.bg-content {
+    position: absolute;
+    top: 25%;
+    left: 65%;
+    right: -30%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+}
+
+@media (max-width: 768px) {
+    .bg-container {
+        padding-bottom: 75%;
+        /* Rasio aspek 4:3 atau sesuaikan untuk tablet */
+    }
+}
+
+@media (max-width: 480px) {
+    .bg-container {
+        padding-bottom: 100%;
+        /* Rasio aspek 1:1 atau sesuaikan untuk ponsel */
+    }
+}
+
+@media (max-width: 380px) {
+    .bg-container {
+        display: none;
+    }
+}
+
+#mapid {
+    min-height: 750px;
+}
+
+#mapid2 {
+    min-height: 450px;
+}
+
+.anchor {
+    display: block;
+    height: 92px;
+    margin-top: -92px;
+    visibility: hidden;
+}
