@@ -15,58 +15,25 @@
                     <i class="ti ti-dashboard"></i>
                 </li>
 
-                <x-nav-link href="/pengaduan" :active="request()->is('/pengaduan')" ti="map-exclamation">Pengaduan</x-nav-link>
-                <x-nav-link href="/Color" :active="request()->is('/Color')" ti="color-swatch">Color</x-nav-link>
-                <x-nav-link href="/Icons" :active="request()->is('/Icons')" ti="plant-2">Icons</x-nav-link>
+                <x-nav-link href="/peta" :active="request()->is('/peta')" ti="map">Peta</x-nav-link>
+                <x-nav-link href="/pengaduan" :active="request()->is('/pengaduan')" ti="map-route">Data Pengaduan</x-nav-link>
+                <x-nav-link href="/form-pengaduan" :active="request()->is('/form-pengaduan')" ti="route">Buat Pengaduan</x-nav-link>
 
                 <li class="pc-item pc-caption">
-                    <label>Other</label>
-                    <i class="ti ti-brand-chrome"></i>
+                    <label>Informasi</label>
+                    <i class="ti ti-dashboard"></i>
                 </li>
 
-                <li class="pc-item pc-hasmenu pc-trigger active">
-                    <a href="#!" class="pc-link">
-                        <span class="pc-micon"><i class="ti ti-menu"></i></span>
-                        <span class="pc-mtext">Menu levels</span>
-                        <span class="pc-arrow"></span>
-                    </a>
+                <x-nav-link href="/artikel" :active="request()->is('/artikel')" ti="article-filled-filled">Artikel</x-nav-link>
+                <x-nav-link href="/form-artikel" :active="request()->is('/form-artikel')" ti="playlist-add">Buat Artikel</x-nav-link>
 
-                    <ul class="pc-submenu" style="display: block; box-sizing: border-box;">
-
-                        <li class="pc-item"><a class="pc-link" href="#!">Level 2.1</a></li>
-                        <li class="pc-item pc-hasmenu">
-                            <a href="#!" class="pc-link">Level 2.2<span class="pc-arrow"></span></a>
-                            <ul class="pc-submenu" style="display: none; transition-property: height, margin, padding; transition-duration: 200ms; box-sizing: border-box; height: 0px; overflow: hidden; padding-top: 0px; padding-bottom: 0px; margin-top: 0px; margin-bottom: 0px;">
-                                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                <li class="pc-item pc-hasmenu">
-                                    <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow"></span></a>
-                                    <ul class="pc-submenu" style="display: none;">
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 4.2</a></li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="pc-item pc-hasmenu pc-trigger">
-                            <a href="#!" class="pc-link">Level 2.3<span class="pc-arrow"></span></a>
-                            <ul class="pc-submenu" style="display: block; box-sizing: border-box;">
-                                <li class="pc-item"><a class="pc-link" href="#!">Level 3.1</a></li>
-                                <li class="pc-item"><a class="pc-link" href="#!">Level 3.2</a></li>
-                                <li class="pc-item pc-hasmenu pc-trigger">
-                                    <a href="#!" class="pc-link">Level 3.3<span class="pc-arrow">></span></a>
-                                    <ul class="pc-submenu" style="display: block; box-sizing: border-box;">
-                                        <li class="pc-item"><a class="pc-link" href="#!">Level 4.1</a></li>
-                                        <li class="pc-item active"><a class="pc-link" href="#!">Level 4.2</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                            </ul>
-                        </li>
-
-                    </ul>
-
+                <li class="pc-item pc-caption">
+                    <label>User</label>
+                    <i class="ti ti-dashboard"></i>
                 </li>
+
+                <x-nav-link href="/pengguna" :active="request()->is('/pengguna')" ti="users">Data Pengguna</x-nav-link>
+
             </ul>
 
         </div>

@@ -18,293 +18,116 @@
             </div>
         </div>
     </div>
-    <!-- [ breadcrumb ] end -->
-    <!-- [ Main Content ] start -->
+
     <div class="row">
-        <!-- [ sample-page ] start -->
-        <div class="col-md-6 col-xl-3">
+        <div class="col-md-12">
             <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">Total Page Views</h6>
-                    <h4 class="mb-3">4,42,236 <span class="badge bg-light-primary border border-primary"><i
-                                class="ti ti-trending-up"></i> 59.3%</span></h4>
-                    <p class="mb-0 text-muted text-sm">You made an extra <span class="text-primary">35,000</span> this
-                        year
-                    </p>
+                <div class="card-header">
+                    <h5>Form Pengaduan Masyarakat Usulan Perbaikan/Pembangunan</h5>
                 </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">Total Users</h6>
-                    <h4 class="mb-3">78,250 <span class="badge bg-light-success border border-success"><i
-                                class="ti ti-trending-up"></i> 70.5%</span></h4>
-                    <p class="mb-0 text-muted text-sm">You made an extra <span class="text-success">8,900</span> this
-                        year</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">Total Order</h6>
-                    <h4 class="mb-3">18,800 <span class="badge bg-light-warning border border-warning"><i
-                                class="ti ti-trending-down"></i> 27.4%</span></h4>
-                    <p class="mb-0 text-muted text-sm">You made an extra <span class="text-warning">1,943</span> this
-                        year</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-6 col-xl-3">
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">Total Sales</h6>
-                    <h4 class="mb-3">$35,078 <span class="badge bg-light-danger border border-danger"><i
-                                class="ti ti-trending-down"></i> 27.4%</span></h4>
-                    <p class="mb-0 text-muted text-sm">You made an extra <span class="text-danger">$20,395</span> this
-                        year
-                    </p>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12 col-xl-8">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-                <h5 class="mb-0">Unique Visitor</h5>
-                <ul class="nav nav-pills justify-content-end mb-0" id="chart-tab-tab" role="tablist">
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="chart-tab-home-tab" data-bs-toggle="pill"
-                            data-bs-target="#chart-tab-home" type="button" role="tab"
-                            aria-controls="chart-tab-home" aria-selected="true">Month</button>
-                    </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="chart-tab-profile-tab" data-bs-toggle="pill"
-                            data-bs-target="#chart-tab-profile" type="button" role="tab"
-                            aria-controls="chart-tab-profile" aria-selected="false">Week</button>
-                    </li>
-                </ul>
-            </div>
-            <div class="card">
-                <div class="card-body">
-                    <div class="tab-content" id="chart-tab-tabContent">
-                        <div class="tab-pane" id="chart-tab-home" role="tabpanel" aria-labelledby="chart-tab-home-tab"
-                            tabindex="0">
-                            <div id="visitor-chart-1"></div>
-                        </div>
-                        <div class="tab-pane show active" id="chart-tab-profile" role="tabpanel"
-                            aria-labelledby="chart-tab-profile-tab" tabindex="0">
-                            <div id="visitor-chart"></div>
+                <form action="#" class="validate-me" id="validate-me" method="POST" data-validate>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="row">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Kelurahan / Desa</label>
+                                            <input type="hidden" id="polyline-coordinates" class="form-control" name="polyline">
+                                            <select class="form-control" required>
+                                                <option value="" disabled selected>Pilih Kelurahan / Desa</option>
+                                                <option value="1">Aspal</option>
+                                                <option value="2">Beton</option>
+                                                <option value="3">Tanah</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Nama Jalan</label>
+                                            <input type="text" name="name" class="form-control" placeholder="Jl Pendidikan" data-bouncer-target="#file-error-msg" required>
+                                            <small id="file-error-msg" class="form-text text-danger"></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Sumber Usulan</label>
+                                            <input type="text" class="form-control" placeholder="DISPERKIM KUTAI TIMUR" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Panjang</label>
+                                            <input type="text" class="form-control" placeholder="1500" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Lebar</label>
+                                            <input type="text" class="form-control" placeholder="8" required>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Kondisi</label>
+                                            <select class="form-control" required>
+                                                <option value="" disabled selected>Pilih Jenis Kondisi</option>
+                                                <option value="1">Baik</option>
+                                                <option value="2">Rusak Ringan</option>
+                                                <option value="3">Rusak Sedang</option>
+                                                <option value="4">Rusak Berat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Yang Diadukan</label>
+                                            <select class="form-control" required>
+                                                <option value="" disabled selected>Pilih Yang Diadukan</option>
+                                                <option value="1">Jalan</option>
+                                                <option value="2">Drainase</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Pengerasan</label>
+                                            <select class="form-control" required>
+                                                <option value="" disabled selected>Pilih Jenis Pengerasan</option>
+                                                <option value="1">Aspal</option>
+                                                <option value="2">Beton</option>
+                                                <option value="3">Tanah</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Gambar</label>
+                                            <input type="file" class="form-control" id="inputGroupFile01" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-12">
+                                <div class="col-sm-12">
+                                    <div class="form-group">
+                                        <label class="form-label">Peta Perencanaan</label>
+                                        <div id="mapid2" style="height: 400px; margin-bottom: 20px; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
+                                        <div style="margin-bottom: 20px;">
+                                            <button type="button" class="btn btn-warning" onclick="undoLastPoint()">↩️ Undo Titik Terakhir</button>
+                                            <button type="button" class="btn btn-danger" onclick="resetMap()">🔄 Reset Semua Titik</button>
+                                            <button type="button" class="btn btn-success" onclick="finishDrawing()">✅ Selesai Menggambar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-xl-4">
-            <h5 class="mb-3">Income Overview</h5>
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
-                    <h3 class="mb-3">$7,650</h3>
-                    <div id="income-overview-chart"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12 col-xl-8">
-            <h5 class="mb-3">Recent Orders</h5>
-            <div class="card tbl-card">
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-borderless mb-0">
-                            <thead>
-                                <tr>
-                                    <th>TRACKING NO.</th>
-                                    <th>PRODUCT NAME</th>
-                                    <th>TOTAL ORDER</th>
-                                    <th>STATUS</th>
-                                    <th class="text-end">TOTAL AMOUNT</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Camera Lens</td>
-                                    <td>40</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                                    </td>
-                                    <td class="text-end">$40,570</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Laptop</td>
-                                    <td>300</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                                    </td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Mobile</td>
-                                    <td>355</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Camera Lens</td>
-                                    <td>40</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                                    </td>
-                                    <td class="text-end">$40,570</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Laptop</td>
-                                    <td>300</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                                    </td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Mobile</td>
-                                    <td>355</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Camera Lens</td>
-                                    <td>40</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-danger f-10 m-r-5"></i>Rejected</span>
-                                    </td>
-                                    <td class="text-end">$40,570</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Laptop</td>
-                                    <td>300</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-warning f-10 m-r-5"></i>Pending</span>
-                                    </td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Mobile</td>
-                                    <td>355</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                                <tr>
-                                    <td><a href="#" class="text-muted">84564564</a></td>
-                                    <td>Mobile</td>
-                                    <td>355</td>
-                                    <td><span class="d-flex align-items-center gap-2"><i
-                                                class="fas fa-circle text-success f-10 m-r-5"></i>Approved</span></td>
-                                    <td class="text-end">$180,139</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                    <div class="card-footer">
+                        <button class="btn btn-primary me-2">Submit</button>
+                        <button type="reset" class="btn btn-light">Reset</button>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-xl-4">
-            <h5 class="mb-3">Analytics Report</h5>
-            <div class="card">
-                <div class="list-group list-group-flush">
-                    <a href="#"
-                        class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Company
-                        Finance Growth<span class="h5 mb-0">+45.14%</span></a>
-                    <a href="#"
-                        class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Company
-                        Expenses Ratio<span class="h5 mb-0">0.58%</span></a>
-                    <a href="#"
-                        class="list-group-item list-group-item-action d-flex align-items-center justify-content-between">Business
-                        Risk Cases<span class="h5 mb-0">Low</span></a>
-                </div>
-                <div class="card-body px-2">
-                    <div id="analytics-report-chart"></div>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-md-12 col-xl-8">
-            <h5 class="mb-3">Sales Report</h5>
-            <div class="card">
-                <div class="card-body">
-                    <h6 class="mb-2 f-w-400 text-muted">This Week Statistics</h6>
-                    <h3 class="mb-0">$7,650</h3>
-                    <div id="sales-report-chart"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-12 col-xl-4">
-            <h5 class="mb-3">Transaction History</h5>
-            <div class="card">
-                <div class="list-group list-group-flush">
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avtar avtar-s rounded-circle text-success bg-light-success">
-                                    <i class="ti ti-gift f-18"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1">Order #002434</h6>
-                                <p class="mb-0 text-muted">Today, 2:00 AM</P>
-                            </div>
-                            <div class="flex-shrink-0 text-end">
-                                <h6 class="mb-1">+ $1,430</h6>
-                                <p class="mb-0 text-muted">78%</P>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avtar avtar-s rounded-circle text-primary bg-light-primary">
-                                    <i class="ti ti-message-circle f-18"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1">Order #984947</h6>
-                                <p class="mb-0 text-muted">5 August, 1:45 PM</P>
-                            </div>
-                            <div class="flex-shrink-0 text-end">
-                                <h6 class="mb-1">- $302</h6>
-                                <p class="mb-0 text-muted">8%</P>
-                            </div>
-                        </div>
-                    </a>
-                    <a href="#" class="list-group-item list-group-item-action">
-                        <div class="d-flex">
-                            <div class="flex-shrink-0">
-                                <div class="avtar avtar-s rounded-circle text-danger bg-light-danger">
-                                    <i class="ti ti-settings f-18"></i>
-                                </div>
-                            </div>
-                            <div class="flex-grow-1 ms-3">
-                                <h6 class="mb-1">Order #988784</h6>
-                                <p class="mb-0 text-muted">7 hours ago</P>
-                            </div>
-                            <div class="flex-shrink-0 text-end">
-                                <h6 class="mb-1">- $682</h6>
-                                <p class="mb-0 text-muted">16%</P>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                </form>
             </div>
         </div>
     </div>

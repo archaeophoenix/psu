@@ -1,0 +1,1436 @@
+<?php
+
+use Illuminate\Support\Str;
+
+if (!function_exists('slugify')) {
+    function slugify(string $text): string
+    {
+        return Str::slug($text);
+    }
+}
+
+if (!function_exists('rupiah')) {
+    function rupiah($angka): string
+    {
+        return 'Rp ' . number_format($angka, 0, ',', '.');
+    }
+}
+
+if (!function_exists('village')) {
+    function village($return = 'array')
+    {
+        $villages = [
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012001",
+                "kelurahan" => "Senyiur",
+                "kelurahan_lat" => 0.303469575,
+                "kelurahan_long" => 116.537415563
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012002",
+                "kelurahan" => "Kelinjau Ilir",
+                "kelurahan_lat" => 0.4459452573,
+                "kelurahan_long" => 116.4884930397
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012003",
+                "kelurahan" => "Kelinjau Ulu",
+                "kelurahan_lat" => 0.5363124154,
+                "kelurahan_long" => 116.4791832648
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012004",
+                "kelurahan" => "Long Nah",
+                "kelurahan_lat" => 0.5534272116,
+                "kelurahan_long" => 116.6152505485
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012006",
+                "kelurahan" => "Long Tesak",
+                "kelurahan_lat" => 0.62748052,
+                "kelurahan_long" => 116.5468675006
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012009",
+                "kelurahan" => "Gemar Baru",
+                "kelurahan_lat" => 0.5876061926,
+                "kelurahan_long" => 116.6137092088
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012012",
+                "kelurahan" => "Long Poq Baru",
+                "kelurahan_lat" => 0.6796228411,
+                "kelurahan_long" => 116.4886139011
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012013",
+                "kelurahan" => "Muara Dun",
+                "kelurahan_lat" => 0.6462705359,
+                "kelurahan_long" => 116.6698526027
+            ],
+            [
+                "kecamatan_id" => "640801",
+                "kecamatan" => "Muara Ancalong",
+                "kecamatan_lat" => 0.453737955,
+                "kecamatan_long" => 116.5159658702,
+                "kelurahan_id" => "6408012014",
+                "kelurahan" => "Teluk Baru",
+                "kelurahan_lat" => 0.5548982749,
+                "kelurahan_long" => 116.564428279
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022001",
+                "kelurahan" => "Jak Luay",
+                "kelurahan_lat" => 1.0002777483,
+                "kelurahan_long" => 116.9893260111
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022002",
+                "kelurahan" => "Nehes Liah Bing",
+                "kelurahan_lat" => 1.4690666363,
+                "kelurahan_long" => 116.7207672151
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022003",
+                "kelurahan" => "Muara Wahau",
+                "kelurahan_lat" => 1.0543702018,
+                "kelurahan_long" => 116.8387185995
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022004",
+                "kelurahan" => "Dabeq",
+                "kelurahan_lat" => 1.01457299,
+                "kelurahan_long" => 116.7621093517
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022005",
+                "kelurahan" => "Diaq Lay",
+                "kelurahan_lat" => 1.061936974,
+                "kelurahan_long" => 116.7760164816
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022006",
+                "kelurahan" => "Benhes",
+                "kelurahan_lat" => 1.4621108747,
+                "kelurahan_long" => 116.421034036
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022007",
+                "kelurahan" => "Wanasari",
+                "kelurahan_lat" => 1.0992086256,
+                "kelurahan_long" => 116.8997814339
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022008",
+                "kelurahan" => "Wahau Baru",
+                "kelurahan_lat" => 1.0736555384,
+                "kelurahan_long" => 116.8903541584
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022009",
+                "kelurahan" => "Karya Bhakti",
+                "kelurahan_lat" => 1.0416651063,
+                "kelurahan_long" => 116.9104627326
+            ],
+            [
+                "kecamatan_id" => "640802",
+                "kecamatan" => "Muara Wahau",
+                "kecamatan_lat" => 1.4177714017,
+                "kecamatan_long" => 116.582566846,
+                "kelurahan_id" => "6408022010",
+                "kelurahan" => "Long Wehea",
+                "kelurahan_lat" => 1.011848459,
+                "kelurahan_long" => 116.8389696508
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032001",
+                "kelurahan" => "Senambah",
+                "kelurahan_lat" => 0.3359355741,
+                "kelurahan_long" => 116.7776922324
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032002",
+                "kelurahan" => "Ngayau",
+                "kelurahan_lat" => 0.3980365809,
+                "kelurahan_long" => 116.8001487088
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032003",
+                "kelurahan" => "Muara Bengkal Ilir",
+                "kelurahan_lat" => 0.4263916155,
+                "kelurahan_long" => 116.8093710193
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032004",
+                "kelurahan" => "Muara Bengkal Ulu",
+                "kelurahan_lat" => 0.4406858614,
+                "kelurahan_long" => 116.8214902827
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032005",
+                "kelurahan" => "Benua Baru",
+                "kelurahan_lat" => 0.4756535756,
+                "kelurahan_long" => 116.8362165711
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032013",
+                "kelurahan" => "Mulupan",
+                "kelurahan_lat" => 0.2485041344,
+                "kelurahan_long" => 116.7637892657
+            ],
+            [
+                "kecamatan_id" => "640803",
+                "kecamatan" => "Muara Bengkal",
+                "kecamatan_lat" => 0.4012735288,
+                "kecamatan_long" => 116.7993719605,
+                "kelurahan_id" => "6408032014",
+                "kelurahan" => "Batu Balai",
+                "kelurahan_lat" => 0.5197991458,
+                "kelurahan_long" => 116.8165719958
+            ],
+            [
+                "kecamatan_id" => "640804",
+                "kecamatan" => "Sangatta Utara",
+                "kecamatan_lat" => 0.5607460964,
+                "kecamatan_long" => 117.5245240291,
+                "kelurahan_id" => "6408041010",
+                "kelurahan" => "Teluk Lingga",
+                "kelurahan_lat" => 0.5229903045,
+                "kelurahan_long" => 117.5867092438
+            ],
+            [
+                "kecamatan_id" => "640804",
+                "kecamatan" => "Sangatta Utara",
+                "kecamatan_lat" => 0.5607460964,
+                "kecamatan_long" => 117.5245240291,
+                "kelurahan_id" => "6408042001",
+                "kelurahan" => "Sangatta Utara",
+                "kelurahan_lat" => 0.4860698529,
+                "kelurahan_long" => 117.5736829431
+            ],
+            [
+                "kecamatan_id" => "640804",
+                "kecamatan" => "Sangatta Utara",
+                "kecamatan_lat" => 0.5607460964,
+                "kecamatan_long" => 117.5245240291,
+                "kelurahan_id" => "6408042011",
+                "kelurahan" => "Singa Gembara",
+                "kelurahan_lat" => 0.5578607342,
+                "kelurahan_long" => 117.6044760848
+            ],
+            [
+                "kecamatan_id" => "640804",
+                "kecamatan" => "Sangatta Utara",
+                "kecamatan_lat" => 0.5607460964,
+                "kecamatan_long" => 117.5245240291,
+                "kelurahan_id" => "6408042012",
+                "kelurahan" => "Swarga Bara",
+                "kelurahan_lat" => 0.5854335996,
+                "kelurahan_long" => 117.4806762009
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052001",
+                "kelurahan" => "Kerayaan",
+                "kelurahan_lat" => 1.0895353505,
+                "kelurahan_long" => 118.2074014128
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052002",
+                "kelurahan" => "Tanjung Manis",
+                "kelurahan_lat" => 0.9648553941,
+                "kelurahan_long" => 118.0902347863
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052003",
+                "kelurahan" => "Peridan",
+                "kelurahan_lat" => 0.9992913684,
+                "kelurahan_long" => 118.0329418995
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052004",
+                "kelurahan" => "Saka",
+                "kelurahan_lat" => 1.1092393191,
+                "kelurahan_long" => 118.1137523495
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052005",
+                "kelurahan" => "Mandu Dalam",
+                "kelurahan_lat" => 1.1325053131,
+                "kelurahan_long" => 118.0070749508
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052006",
+                "kelurahan" => "Benua Baru",
+                "kelurahan_lat" => 0.9566947685,
+                "kelurahan_long" => 117.9285766488
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052011",
+                "kelurahan" => "Sempayau",
+                "kelurahan_lat" => 1.1366510605,
+                "kelurahan_long" => 117.8606072705
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052012",
+                "kelurahan" => "Pelawan",
+                "kelurahan_lat" => 1.2077678136,
+                "kelurahan_long" => 117.8929663695
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052013",
+                "kelurahan" => "Tepian Terap",
+                "kelurahan_lat" => 1.2349154908,
+                "kelurahan_long" => 117.9417841752
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052015",
+                "kelurahan" => "Maloy",
+                "kelurahan_lat" => 0.8519011787,
+                "kelurahan_long" => 117.9848889459
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052016",
+                "kelurahan" => "Benua Baru Ulu",
+                "kelurahan_lat" => 1.0218901039,
+                "kelurahan_long" => 117.9612262872
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052017",
+                "kelurahan" => "Kolek",
+                "kelurahan_lat" => 1.0106108775,
+                "kelurahan_long" => 117.9159980041
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052018",
+                "kelurahan" => "Pulau Miang",
+                "kelurahan_lat" => 0.7288741879,
+                "kelurahan_long" => 118.0105424851
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052019",
+                "kelurahan" => "Perupuk",
+                "kelurahan_lat" => 0.9247992051,
+                "kelurahan_long" => 118.141299871
+            ],
+            [
+                "kecamatan_id" => "640805",
+                "kecamatan" => "Sangkulirang",
+                "kecamatan_lat" => 1.064738179,
+                "kecamatan_long" => 118.0489423241,
+                "kelurahan_id" => "6408052020",
+                "kelurahan" => "Mandu Pantai Sejahtera",
+                "kelurahan_lat" => 1.0811108604,
+                "kelurahan_long" => 118.0283370002
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062001",
+                "kelurahan" => "Long Bentuq",
+                "kelurahan_lat" => 0.7431771284,
+                "kelurahan_long" => 116.6186490568
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062002",
+                "kelurahan" => "Long Pejeng",
+                "kelurahan_lat" => 0.7962842753,
+                "kelurahan_long" => 116.5851422966
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062003",
+                "kelurahan" => "Long Lees",
+                "kelurahan_lat" => 0.7848549999,
+                "kelurahan_long" => 116.5029830401
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062004",
+                "kelurahan" => "Mekar Baru",
+                "kelurahan_lat" => 1.0474667548,
+                "kelurahan_long" => 116.2395526996
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062005",
+                "kelurahan" => "Rantau Sentosa",
+                "kelurahan_lat" => 0.7732104899,
+                "kelurahan_long" => 116.6204211883
+            ],
+            [
+                "kecamatan_id" => "640806",
+                "kecamatan" => "Busang",
+                "kecamatan_lat" => 0.9792809647,
+                "kecamatan_long" => 116.2971201165,
+                "kelurahan_id" => "6408062006",
+                "kelurahan" => "Long Nyelong",
+                "kelurahan_lat" => 0.7655907388,
+                "kelurahan_long" => 116.4273109807
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072001",
+                "kelurahan" => "Marah Haloq",
+                "kelurahan_lat" => 1.0723412192,
+                "kelurahan_long" => 116.6209460588
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072002",
+                "kelurahan" => "Lung Melah",
+                "kelurahan_lat" => 0.9853575129,
+                "kelurahan_long" => 116.5945755869
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072003",
+                "kelurahan" => "Juk Ayaq",
+                "kelurahan_lat" => 0.923574838,
+                "kelurahan_long" => 117.0989833426
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072004",
+                "kelurahan" => "Long Segar",
+                "kelurahan_lat" => 0.8454220541,
+                "kelurahan_long" => 117.0041679944
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072005",
+                "kelurahan" => "Long Noran",
+                "kelurahan_lat" => 0.7836626958,
+                "kelurahan_long" => 116.8911554632
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072006",
+                "kelurahan" => "Muara Pantun",
+                "kelurahan_lat" => 0.9186413764,
+                "kelurahan_long" => 116.9186906374
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072007",
+                "kelurahan" => "Rantau Panjang",
+                "kelurahan_lat" => 0.9352870059,
+                "kelurahan_long" => 116.8563885081
+            ],
+            [
+                "kecamatan_id" => "640807",
+                "kecamatan" => "Telen",
+                "kecamatan_lat" => 0.9615467073,
+                "kecamatan_long" => 116.7876394231,
+                "kelurahan_id" => "6408072008",
+                "kelurahan" => "Kernyanyan",
+                "kelurahan_lat" => 0.8016956413,
+                "kelurahan_long" => 116.8463977457
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082001",
+                "kelurahan" => "Makmur Jaya",
+                "kelurahan_lat" => 1.1226779632,
+                "kelurahan_long" => 116.9998030623
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082002",
+                "kelurahan" => "Marga Mulya",
+                "kelurahan_lat" => 1.0889568396,
+                "kelurahan_long" => 116.9223966913
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082003",
+                "kelurahan" => "Sukamaju",
+                "kelurahan_lat" => 1.0914507489,
+                "kelurahan_long" => 117.03693977
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082004",
+                "kelurahan" => "Sidomulyo",
+                "kelurahan_lat" => 1.0565786552,
+                "kelurahan_long" => 116.9409276903
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082005",
+                "kelurahan" => "Sri Pantun",
+                "kelurahan_lat" => 1.0546791686,
+                "kelurahan_long" => 116.9672707493
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082006",
+                "kelurahan" => "Kombeng Indah",
+                "kelurahan_lat" => 1.056971673,
+                "kelurahan_long" => 117.0057767483
+            ],
+            [
+                "kecamatan_id" => "640808",
+                "kecamatan" => "Kombeng",
+                "kecamatan_lat" => 1.2747620301,
+                "kecamatan_long" => 117.0307713532,
+                "kelurahan_id" => "6408082007",
+                "kelurahan" => "Miau Baru",
+                "kelurahan_lat" => 1.3099258079,
+                "kelurahan_long" => 117.0368038875
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092001",
+                "kelurahan" => "Sepaso",
+                "kelurahan_lat" => 0.7678936228,
+                "kelurahan_long" => 117.5653350617
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092002",
+                "kelurahan" => "Sekerat",
+                "kelurahan_lat" => 0.8307162643,
+                "kelurahan_long" => 117.7083174697
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092003",
+                "kelurahan" => "Keraitan",
+                "kelurahan_lat" => 0.9107783847,
+                "kelurahan_long" => 117.5716553631
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092004",
+                "kelurahan" => "Tepian Langsat",
+                "kelurahan_lat" => 0.9806345143,
+                "kelurahan_long" => 117.3033399254
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092005",
+                "kelurahan" => "Tebangan Lembak",
+                "kelurahan_lat" => 0.8945220799,
+                "kelurahan_long" => 117.4649030952
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092006",
+                "kelurahan" => "Sepaso Timur",
+                "kelurahan_lat" => 0.7833397466,
+                "kelurahan_long" => 117.6237019839
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092007",
+                "kelurahan" => "Sepaso Selatan",
+                "kelurahan_lat" => 0.6667767204,
+                "kelurahan_long" => 117.5469692684
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092008",
+                "kelurahan" => "Muara Bengalon",
+                "kelurahan_lat" => 0.6505125234,
+                "kelurahan_long" => 117.6655649411
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092009",
+                "kelurahan" => "Tepian Baru",
+                "kelurahan_lat" => 0.7311829177,
+                "kelurahan_long" => 117.253743993
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092010",
+                "kelurahan" => "Tepian Indah",
+                "kelurahan_lat" => 0.6786305099,
+                "kelurahan_long" => 117.3087372523
+            ],
+            [
+                "kecamatan_id" => "640809",
+                "kecamatan" => "Bengalon",
+                "kecamatan_lat" => 0.8959268701,
+                "kecamatan_long" => 117.432501723,
+                "kelurahan_id" => "6408092011",
+                "kelurahan" => "Sepaso Barat",
+                "kelurahan_lat" => 0.7645290726,
+                "kelurahan_long" => 117.5368641544
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102001",
+                "kelurahan" => "Kaliorang",
+                "kelurahan_lat" => 0.8389404403,
+                "kelurahan_long" => 117.9184608132
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102006",
+                "kelurahan" => "Bukit Makmur",
+                "kelurahan_lat" => 0.9089522581,
+                "kelurahan_long" => 117.8383461877
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102007",
+                "kelurahan" => "Bukit Harapan",
+                "kelurahan_lat" => 0.8625739523,
+                "kelurahan_long" => 117.8419153079
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102008",
+                "kelurahan" => "Citra Manunggal Jaya",
+                "kelurahan_lat" => 0.9010888126,
+                "kelurahan_long" => 117.8806163871
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102009",
+                "kelurahan" => "Bangun Jaya",
+                "kelurahan_lat" => 0.8708780168,
+                "kelurahan_long" => 117.8726980599
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102010",
+                "kelurahan" => "Bumi Sejahtera",
+                "kelurahan_lat" => 0.9042337337,
+                "kelurahan_long" => 117.9217662124
+            ],
+            [
+                "kecamatan_id" => "640810",
+                "kecamatan" => "Kaliorang",
+                "kecamatan_lat" => 0.866722672,
+                "kecamatan_long" => 117.8695918838,
+                "kelurahan_id" => "6408102013",
+                "kelurahan" => "Selangkau",
+                "kelurahan_lat" => 0.8433682978,
+                "kelurahan_long" => 117.8153434585
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112001",
+                "kelurahan" => "Sandaran",
+                "kelurahan_lat" => 0.9445768121,
+                "kelurahan_long" => 118.782616849
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112002",
+                "kelurahan" => "Manubar",
+                "kelurahan_lat" => 0.8937674858,
+                "kelurahan_long" => 118.5944876146
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112003",
+                "kelurahan" => "Tadoan",
+                "kelurahan_lat" => 1.0719206803,
+                "kelurahan_long" => 118.5596656383
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112004",
+                "kelurahan" => "Marukangan",
+                "kelurahan_lat" => 1.0605327853,
+                "kelurahan_long" => 118.3779881506
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112005",
+                "kelurahan" => "Susuk Luar",
+                "kelurahan_lat" => 0.882755988,
+                "kelurahan_long" => 118.2171931665
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112006",
+                "kelurahan" => "Susuk Dalam",
+                "kelurahan_lat" => 1.0111827888,
+                "kelurahan_long" => 118.2379213605
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112007",
+                "kelurahan" => "Tanjung Mangkaliat",
+                "kelurahan_lat" => 0.9843809081,
+                "kelurahan_long" => 118.9321743402
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112008",
+                "kelurahan" => "Manubar Dalam",
+                "kelurahan_lat" => 0.9390187396,
+                "kelurahan_long" => 118.491201903
+            ],
+            [
+                "kecamatan_id" => "640811",
+                "kecamatan" => "Sandaran",
+                "kecamatan_lat" => 1.0008702775,
+                "kecamatan_long" => 118.5282680072,
+                "kelurahan_id" => "6408112009",
+                "kelurahan" => "Susuk Tengah",
+                "kelurahan_lat" => 0.9262810047,
+                "kelurahan_long" => 118.2105273242
+            ],
+            [
+                "kecamatan_id" => "640812",
+                "kecamatan" => "Sangatta Selatan",
+                "kecamatan_lat" => 0.4341559968,
+                "kecamatan_long" => 117.3254440956,
+                "kelurahan_id" => "6408121002",
+                "kelurahan" => "Singa Geweh",
+                "kelurahan_lat" => 0.437655693,
+                "kelurahan_long" => 117.5656167593
+            ],
+            [
+                "kecamatan_id" => "640812",
+                "kecamatan" => "Sangatta Selatan",
+                "kecamatan_lat" => 0.4341559968,
+                "kecamatan_long" => 117.3254440956,
+                "kelurahan_id" => "6408122001",
+                "kelurahan" => "Sangatta Selatan",
+                "kelurahan_lat" => 0.4931458251,
+                "kelurahan_long" => 117.2828459612
+            ],
+            [
+                "kecamatan_id" => "640812",
+                "kecamatan" => "Sangatta Selatan",
+                "kecamatan_lat" => 0.4341559968,
+                "kecamatan_long" => 117.3254440956,
+                "kelurahan_id" => "6408122003",
+                "kelurahan" => "Sangkima",
+                "kelurahan_lat" => 0.3981482351,
+                "kelurahan_long" => 117.332051018
+            ],
+            [
+                "kecamatan_id" => "640812",
+                "kecamatan" => "Sangatta Selatan",
+                "kecamatan_lat" => 0.4341559968,
+                "kecamatan_long" => 117.3254440956,
+                "kelurahan_id" => "6408122004",
+                "kelurahan" => "Teluk Singkama",
+                "kelurahan_lat" => 0.3368622621,
+                "kelurahan_long" => 117.3811108083
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132001",
+                "kelurahan" => "Teluk Pandan",
+                "kelurahan_lat" => 0.2384295864,
+                "kelurahan_long" => 117.3477127414
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132002",
+                "kelurahan" => "Suka Rahmat",
+                "kelurahan_lat" => 0.1477446657,
+                "kelurahan_long" => 117.3425241386
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132003",
+                "kelurahan" => "Suka Damai",
+                "kelurahan_lat" => 0.1110003513,
+                "kelurahan_long" => 117.2961422802
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132004",
+                "kelurahan" => "Kandolo",
+                "kelurahan_lat" => 0.2922650329,
+                "kelurahan_long" => 117.3567929787
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132005",
+                "kelurahan" => "Danau Redan",
+                "kelurahan_lat" => 0.0560228019,
+                "kelurahan_long" => 117.3231871907
+            ],
+            [
+                "kecamatan_id" => "640813",
+                "kecamatan" => "Teluk Pandan",
+                "kecamatan_lat" => 0.1934201905,
+                "kecamatan_long" => 117.3349219307,
+                "kelurahan_id" => "6408132006",
+                "kelurahan" => "Martadinata",
+                "kelurahan_lat" => 0.1846622063,
+                "kelurahan_long" => 117.3285300497
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142001",
+                "kelurahan" => "Mukti Jaya",
+                "kelurahan_lat" => 0.6063075521,
+                "kelurahan_long" => 117.3435867164
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142002",
+                "kelurahan" => "Pulung Sari",
+                "kelurahan_lat" => 0.647045099,
+                "kelurahan_long" => 117.3168976419
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142003",
+                "kelurahan" => "Margo Mulyo",
+                "kelurahan_lat" => 0.6298394998,
+                "kelurahan_long" => 117.3340466816
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142004",
+                "kelurahan" => "Rantau Makmur",
+                "kelurahan_lat" => 0.5409114323,
+                "kelurahan_long" => 117.280682356
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142005",
+                "kelurahan" => "Manunggal Jaya",
+                "kelurahan_lat" => 0.6493966041,
+                "kelurahan_long" => 117.1701913263
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142006",
+                "kelurahan" => "Tanjung Labu",
+                "kelurahan_lat" => 0.6036885201,
+                "kelurahan_long" => 117.1397711975
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142007",
+                "kelurahan" => "Kebon Agung",
+                "kelurahan_lat" => 0.5544565268,
+                "kelurahan_long" => 117.1920911769
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142008",
+                "kelurahan" => "Tepian Makmur",
+                "kelurahan_lat" => 0.7336213686,
+                "kelurahan_long" => 117.1444498102
+            ],
+            [
+                "kecamatan_id" => "640814",
+                "kecamatan" => "Rantau Pulung",
+                "kecamatan_lat" => 0.6384030794,
+                "kecamatan_long" => 117.1944386269,
+                "kelurahan_id" => "6408142009",
+                "kelurahan" => "Masalap Raya",
+                "kelurahan_lat" => 0.5863444844,
+                "kelurahan_long" => 117.3360769697
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152001",
+                "kelurahan" => "Bumi Etam",
+                "kelurahan_lat" => 1.0898193343,
+                "kelurahan_long" => 117.8517647268
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152002",
+                "kelurahan" => "Bumi Rapak",
+                "kelurahan_lat" => 1.0444258062,
+                "kelurahan_long" => 117.8366141304
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152003",
+                "kelurahan" => "Bumi Jaya",
+                "kelurahan_lat" => 1.0040864411,
+                "kelurahan_long" => 117.8013502773
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152004",
+                "kelurahan" => "Cipta Graha",
+                "kelurahan_lat" => 0.9674863709,
+                "kelurahan_long" => 117.7698689428
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152005",
+                "kelurahan" => "Kadungan Jaya",
+                "kelurahan_lat" => 1.1703055764,
+                "kelurahan_long" => 117.8320363255
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152006",
+                "kelurahan" => "Pengadan Baru",
+                "kelurahan_lat" => 1.2053289902,
+                "kelurahan_long" => 117.7960961658
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152007",
+                "kelurahan" => "Mata Air",
+                "kelurahan_lat" => 1.082133238,
+                "kelurahan_long" => 117.7922674399
+            ],
+            [
+                "kecamatan_id" => "640815",
+                "kecamatan" => "Kaubun",
+                "kecamatan_lat" => 1.0433720688,
+                "kecamatan_long" => 117.7900435731,
+                "kelurahan_id" => "6408152008",
+                "kelurahan" => "Bukit Permata",
+                "kelurahan_lat" => 1.064613614,
+                "kelurahan_long" => 117.7325358796
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162001",
+                "kelurahan" => "Karangan Dalam",
+                "kelurahan_lat" => 1.4174917843,
+                "kelurahan_long" => 117.4500166007
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162002",
+                "kelurahan" => "Batu Lepoq",
+                "kelurahan_lat" => 1.4822750521,
+                "kelurahan_long" => 117.7733949613
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162003",
+                "kelurahan" => "Pengadan",
+                "kelurahan_lat" => 1.1646488463,
+                "kelurahan_long" => 117.6840284399
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162004",
+                "kelurahan" => "Baay",
+                "kelurahan_lat" => 1.1351620068,
+                "kelurahan_long" => 117.4815041126
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162005",
+                "kelurahan" => "Mukti Lestari",
+                "kelurahan_lat" => 1.3239756104,
+                "kelurahan_long" => 117.7789680815
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162006",
+                "kelurahan" => "Karangan Seberang",
+                "kelurahan_lat" => 1.3260976525,
+                "kelurahan_long" => 117.6405870131
+            ],
+            [
+                "kecamatan_id" => "640816",
+                "kecamatan" => "Karangan",
+                "kecamatan_lat" => 1.3174448353,
+                "kecamatan_long" => 117.5814862555,
+                "kelurahan_id" => "6408162007",
+                "kelurahan" => "Karangan Hilir",
+                "kelurahan_lat" => 1.5198045533,
+                "kelurahan_long" => 117.6510096625
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172001",
+                "kelurahan" => "Batu Timbau",
+                "kelurahan_lat" => 0.6383516136,
+                "kelurahan_long" => 116.8387446248
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172002",
+                "kelurahan" => "Beno Harapan",
+                "kelurahan_lat" => 0.6593537811,
+                "kelurahan_long" => 116.9218132111
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172003",
+                "kelurahan" => "Mugi Rahayu",
+                "kelurahan_lat" => 0.7503334907,
+                "kelurahan_long" => 116.8862450145
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172004",
+                "kelurahan" => "Mawai Indah",
+                "kelurahan_lat" => 0.5635921665,
+                "kelurahan_long" => 116.9084617954
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172005",
+                "kelurahan" => "Himba Lestari",
+                "kelurahan_lat" => 0.6758293288,
+                "kelurahan_long" => 116.9604658161
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172006",
+                "kelurahan" => "Telaga",
+                "kelurahan_lat" => 0.6206174888,
+                "kelurahan_long" => 116.7912389411
+            ],
+            [
+                "kecamatan_id" => "640817",
+                "kecamatan" => "Batu Ampar",
+                "kecamatan_lat" => 0.6705422268,
+                "kecamatan_long" => 116.8958841456,
+                "kelurahan_id" => "6408172007",
+                "kelurahan" => "Batu Timbau Ulu",
+                "kelurahan_lat" => 0.6879381164,
+                "kelurahan_long" => 116.7991277367
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182001",
+                "kelurahan" => "Sika Makmur",
+                "kelurahan_lat" => 0.6714297647,
+                "kelurahan_long" => 116.7083171988
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182002",
+                "kelurahan" => "Segoy Makmur",
+                "kelurahan_lat" => 0.637730236,
+                "kelurahan_long" => 116.7177758614
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182003",
+                "kelurahan" => "Mukti Utama",
+                "kelurahan_lat" => 0.6000041181,
+                "kelurahan_long" => 116.6878212258
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182004",
+                "kelurahan" => "Sumber Sari",
+                "kelurahan_lat" => 0.5822438285,
+                "kelurahan_long" => 116.7061091589
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182005",
+                "kelurahan" => "Melan",
+                "kelurahan_lat" => 0.705654357,
+                "kelurahan_long" => 116.6861927119
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182006",
+                "kelurahan" => "Tanah Abang",
+                "kelurahan_lat" => 0.5313148968,
+                "kelurahan_long" => 116.7177564022
+            ],
+            [
+                "kecamatan_id" => "640818",
+                "kecamatan" => "Long Mesangat",
+                "kecamatan_lat" => 0.6156960997,
+                "kecamatan_long" => 116.7056990015,
+                "kelurahan_id" => "6408182007",
+                "kelurahan" => "Sumber Agung",
+                "kelurahan_lat" => 0.5555096562,
+                "kelurahan_long" => 116.7554149596
+            ]
+        ];
+        return ($return == 'array') ? $villages : response()->json(['data' =>$villages, 'message' => 'Data retrieved successfully'], 200);
+    }
+}
