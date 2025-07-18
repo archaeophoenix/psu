@@ -14,7 +14,7 @@ class MappingSeeder extends Seeder
      */
     public function run(): void
     {
-        /*DB::table('mappings')->insert([
+        DB::table('mappings')->insert([
             [
                 "id" => "1",
                 "name" => "Blok H DS Manunggal jaya",
@@ -5107,9 +5107,9 @@ class MappingSeeder extends Seeder
                 "created_by" => "1",
                 "updated_by" => "1"
             ]
-        ]);*/
+        ]);
 
-        /*DB::table('mappings')->insert([
+        DB::table('mappings')->insert([
             [
                 "name" => "Blok A DS Pulung Sari",
                 "length" => "4.03",
@@ -5661,6 +5661,6 @@ class MappingSeeder extends Seeder
                 "created_by" => "1",
                 "updated_by" => "1"
             ]
-        ]);*/
+        ]);
     }
 }

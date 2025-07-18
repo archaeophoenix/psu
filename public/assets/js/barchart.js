@@ -23,7 +23,7 @@ class BarChart {
             },
             stroke: {
                 show: true,
-                width: 8,
+                width: 15,
                 colors: ['transparent']
             },
             dataLabels: {
@@ -51,7 +51,7 @@ class BarChart {
                     vertical: 5
                 }
             },
-            colors: ['#faad14', '#1890ff'],
+            colors: ['#aee2f0', '#ffc000'],
             series: this.series,
             xaxis: {
                 categories: this.categories

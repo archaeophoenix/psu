@@ -5,16 +5,7 @@
     <div class="page-header">
         <div class="page-block">
             <div class="row align-items-center">
-                <div class="col-md-12">
-                    <div class="page-header-title">
-                        <h5 class="m-b-10">Home</h5>
-                    </div>
-                    <ul class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="../dashboard/index.html">Home</a></li>
-                        <li class="breadcrumb-item"><a href="javascript: void(0)">Dashboard</a></li>
-                        <li class="breadcrumb-item" aria-current="page">Home</li>
-                    </ul>
-                </div>
+
             </div>
         </div>
     </div>
@@ -25,7 +16,7 @@
                 <div class="card-header">
                     <h5>Form Pengaduan Masyarakat Usulan Perbaikan/Pembangunan</h5>
                 </div>
-                <form action="#" class="validate-me" id="validate-me" method="POST" data-validate>
+                <form class="validate-me" id="validate-me" method="POST" data-validate>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
@@ -34,11 +25,17 @@
                                         <div class="form-group">
                                             <label class="form-label">Kelurahan / Desa</label>
                                             <input type="hidden" id="polyline-coordinates" class="form-control" name="polyline">
-                                            <select class="form-control" required>
+                                            <select name="location" class="form-control" required>
                                                 <option value="" disabled selected>Pilih Kelurahan / Desa</option>
-                                                <option value="1">Aspal</option>
-                                                <option value="2">Beton</option>
-                                                <option value="3">Tanah</option>
+                                                @foreach ($villages as $kecamatan => $kelurahanGroup)
+                                                    <optgroup label="{{ $kelurahanGroup->first()['kecamatan'] }}">
+                                                        @foreach ($kelurahanGroup as $kelurahan)
+                                                            <option slot="{{ $kelurahan['kelurahan_lat'] }} - {{ $kelurahan['kelurahan_long'] }}" value="{{ $kelurahan['kelurahan'] }}">
+                                                                {{ $kelurahan['kelurahan'] }}
+                                                            </option>
+                                                        @endforeach
+                                                    </optgroup>
+                                                @endforeach
                                             </select>
                                         </div>
                                     </div>
@@ -52,25 +49,25 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Sumber Usulan</label>
-                                            <input type="text" class="form-control" placeholder="DISPERKIM KUTAI TIMUR" required>
+                                            <input name="proposal_source" type="text" class="form-control" placeholder="DISPERKIM KUTAI TIMUR" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Panjang</label>
-                                            <input type="text" class="form-control" placeholder="1500" required>
+                                            <input type="text" class="form-control" name="length" placeholder="1500" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Lebar</label>
-                                            <input type="text" class="form-control" placeholder="8" required>
+                                            <input type="text" class="form-control" name="width" placeholder="8" required>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Kondisi</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name="condition" required>
                                                 <option value="" disabled selected>Pilih Jenis Kondisi</option>
                                                 <option value="1">Baik</option>
                                                 <option value="2">Rusak Ringan</option>
@@ -82,7 +79,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Yang Diadukan</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name="type" required>
                                                 <option value="" disabled selected>Pilih Yang Diadukan</option>
                                                 <option value="1">Jalan</option>
                                                 <option value="2">Drainase</option>
@@ -92,7 +89,7 @@
                                     <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Pengerasan</label>
-                                            <select class="form-control" required>
+                                            <select class="form-control" name="paving" required>
                                                 <option value="" disabled selected>Pilih Jenis Pengerasan</option>
                                                 <option value="1">Aspal</option>
                                                 <option value="2">Beton</option>
@@ -100,12 +97,12 @@
                                             </select>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6">
+                                    {{-- <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Gambar</label>
                                             <input type="file" class="form-control" id="inputGroupFile01" required>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -124,7 +121,7 @@
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-primary me-2">Submit</button>
+                        <button type="submit" class="btn btn-primary me-2">Submit</button>
                         <button type="reset" class="btn btn-light">Reset</button>
                     </div>
                 </form>

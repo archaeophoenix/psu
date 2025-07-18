@@ -1,38 +1,52 @@
-var map2 = L.map('mapid2').setView([0.6461, 117.2578], 11); // Pusat Kutai Timur
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    maxZoom: 20,
-    attribution: '© OpenStreetMap'
-}).addTo(map2);
-// Inisialisasi array koordinat dan polyline
-var latlngs = [];
-var markers = [];
-var polyline = null;
+if ($('#mapid2').length > 0) {
+    var baseLayerOSM = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 20,
+        attribution: '© OpenStreetMap'
+    });
+
+    var baseLayerEsri = L.tileLayer.provider('Esri.WorldImagery');
+
+    var map2 = L.map('mapid2', {
+        center: [0.6461, 117.2578],
+        zoom: 25,
+        layers: [baseLayerEsri] // default layer
+    });
+
+    // Control layer toggle
+    var baseMaps = {
+        "OpenStreetMap": baseLayerOSM,
+        "Esri World Imagery": baseLayerEsri
+    };
+    L.control.layers(baseMaps).addTo(map2);
+
+    var latlngs = [];
+    var markers = [];
+    var polyline = null;
+
+    map2.on('click', function (e) {
+        var latlng = L.latLng(e.latlng.lat, e.latlng.lng);
+        latlngs.push(latlng);
+        var marker = L.marker(latlng).addTo(map2);
+        markers.push(marker);
+        updatePolyline();
+    });
+}
+
 // Update polyline dan input hidden
 function updatePolyline() {
-    // polyline.setLatLngs(latlngs);
-    document.getElementById('polyline-coordinates').value = JSON.stringify(latlngs.map(p => [p.lat, p.lng]) // konversi ke array biasa sebelum simpan
-    );
+    document.getElementById('polyline-coordinates').value = JSON.stringify(latlngs.map(p => [p.lat, p.lng]));
     if (latlngs.length > 1) {
         if (polyline) {
-            // Jika polyline sudah ada, perbarui koordinatnya
             polyline.setLatLngs(latlngs);
         } else {
-            // Jika polyline belum ada, buat yang baru dengan warna merah
             polyline = L.polyline(latlngs, {
                 color: 'red'
             }).addTo(map2);
         }
     }
 }
-// Klik di peta: tambahkan titik
-map2.on('click', function(e) {
-    var latlng = L.latLng(e.latlng.lat, e.latlng.lng); // ⬅️ gunakan L.latLng
-    latlngs.push(latlng); // array of LatLng
-    var marker = L.marker(latlng).addTo(map2);
-    markers.push(marker);
-    updatePolyline(); // ⬅️ menggambar ulang garis
-});
-// Fungsi Undo
+
+// Undo
 function undoLastPoint() {
     if (latlngs.length > 0) {
         latlngs.pop();
@@ -41,15 +55,17 @@ function undoLastPoint() {
         updatePolyline();
     }
 }
-// Fungsi Reset
+
+// Reset
 function resetMap() {
     latlngs = [];
     markers.forEach(marker => map2.removeLayer(marker));
     markers = [];
-    polyline.setLatLngs([]); // Hapus garis dari peta
+    if (polyline) polyline.setLatLngs([]);
     document.getElementById('polyline-coordinates').value = '';
 }
-// Fungsi Selesai
+
+// Finish
 function finishDrawing() {
     alert('Polyline telah selesai. Klik Simpan untuk menyimpan koordinat.');
 }

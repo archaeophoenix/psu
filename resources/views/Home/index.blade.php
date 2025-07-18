@@ -2,7 +2,6 @@
 
     <x-slot:title>{{ $title }}</x-slot>
 
-    <textarea id="roads" class="d-none">{!! $roads !!}</textarea>
     <span class=" anchor" id="beranda"></span>
     <div class="page-header">
         <div class="col-md-12 bg-container" style="background-image: url('assets/images/bg.svg');background-repeat:no-repeat; background-position:center; width:100%;">
@@ -345,6 +344,7 @@
         </div>
     </div>
 
+    <x-modal-road></x-modal-road>
     <x-modal></x-modal>
 
 </x-layout>

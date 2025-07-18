@@ -14,7 +14,6 @@ class HomeController extends Controller
     public function index()
     {
         $articles = Articles::orderBy('created_at','desc')->take(15)->get()->toArray();
-        $roads = Mapping::getAllMapping();
         $years = Mapping::select('proposal_year')->distinct()->get();
         $counts = Mapping::query()
                     ->select('type', DB::raw('COUNT(*) as total'))
@@ -32,7 +31,6 @@ class HomeController extends Controller
             'description' => 'Selamat datang di Beranda PSU',
             'articles' => $articles,
             'title' => 'Beranda',
-            'roads' => json_encode($roads),
             'years' => collect($years)->pluck('proposal_year')->toArray(),
             'counts' => $counts
         ]);

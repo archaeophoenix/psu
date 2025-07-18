@@ -29,6 +29,10 @@
             </div>
         </main>
 
+        <x-modal-alert></x-modal-alert>
+
+        <x-modal-load></x-modal-load>
+
         <x-footer></x-footer>
 
         <x-js></x-js>

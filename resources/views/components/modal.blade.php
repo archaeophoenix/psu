@@ -14,7 +14,7 @@
                             <div class="card-body position-relative">
                                 <div class="text-center mt-3">
                                     <div class="chat-avtar d-inline-flex mx-auto">
-                                        <img class=" img-fluid " id="img" src="../assets/images/light-box/l3.jpg" alt="User image">
+                                        <img class="img-fluid" id="img">
                                     </div>
                                     <hr class="my-3 border border-secondary-subtle">
                                 </div>
@@ -25,10 +25,10 @@
 
                         <div class="card">
                             <div class="card-header">
-                                <h5 id="title">Card Title</h5>
+                                <h5 id="title"></h5>
                             </div>
                             <div class="card-body">
-                                <p class="mb-0" id="content">Hello, I’m Aaron Poole Manufacturing Director based in international company, Void jiidki me na fep juih ced gihhiwi launke cu mig tujum peodpo.</p>
+                                <p class="mb-0" id="content"></p>
                             </div>
                         </div>
                     </div>
