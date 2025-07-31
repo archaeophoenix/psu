@@ -82,8 +82,8 @@ class RoadMap {
 
         const polyline = L.polyline(coordinates, {
             color: color,
-            weight: 4,
-            opacity: 0.8
+            weight: 8,
+            opacity: 0.9
         }).addTo(this.map);
 
         const popupContent = `
@@ -93,21 +93,138 @@ class RoadMap {
             Kondisi: ${road.condition}<br>
             Perkerasan: ${road.paving}
         `;
-        // polyline.bindPopup(popupContent);
+        polyline.bindPopup(popupContent);
 
         polyline.on('click', () => {
-            // Isi data ke modal
+
+            let badgeClass = 'secondary';
+            let badgeStatus = 'secondary';
+            let badgePaving = 'secondary';
+            let badgePopulation = 'secondary';
+
+            switch (road.condition) {
+                case 'Baik':
+                    badgeClass = 'success';
+                break;
+                case 'Rusak Ringan':
+                    badgeClass = 'warning';
+                break;
+                case 'Rusak Sedang':
+                    badgeClass = 'danger';
+                break;
+                case 'Rusak Berat':
+                    badgeClass = 'red-900';
+                break;
+            }
+
+            switch (road.status) {
+                case 'Usulan':
+                    badgeStatus = 'red-900';
+                    break;
+                case 'Valid':
+                    badgeStatus = 'warning';
+                    break;
+                case 'Perencanaan':
+                    badgeStatus = 'danger';
+                    break;
+                case 'Eksisting':
+                    badgeStatus = 'success';
+                    break;
+            }
+
+            switch (road.paving) {
+                case 'Aspal':
+                    badgePaving = 'success';
+                    break;
+                case 'Beton':
+                    badgePaving = 'warning';
+                    break;
+                case 'Tanah':
+                    badgePaving = 'danger';
+                    break;
+            }
+
+            switch (road.population) {
+                case 'Tinggi':
+                    badgePopulation = 'danger';
+                    break;
+                case 'Sedang':
+                    badgePopulation = 'warning';
+                    break;
+                case 'Rendah':
+                    badgePopulation = 'success';
+                    break;
+            }
+
+            $('#budget').html(``);
+            $('#planning').html(``);
+            $('#carouselInner').html(``);
+            $('#budget_download').hide();
+            $('#planning_download').hide();
+            $('#carouselIndicators').html(``);
+            $('#budget_download').removeAttr('href');
+            $('#planning_download').removeAttr('href');
+
+            let photos = JSON.parse(road.photo);
+
+            photos.forEach (function(foto, index) {
+                let activeIndicator = index === 0 ? 'class="active" aria-current="true"' : '';
+                let activeItem = index === 0 ? 'active' : '';
+
+                $('#carouselIndicators').append(`
+                    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" ${activeIndicator} aria-label="Slide ${index + 1}"></button>
+                `);
+                $('#carouselInner').append(`
+                    <div class="carousel-item ${activeItem}"><img src="${baseUrl}/${foto}" class="d-block w-100" alt="alt="Road Image ${index + 1}"></div>
+                `);
+            });
+
+            if(road.budget){
+                $('#budget').html(`
+                    <iframe src="${baseUrl}/${road.budget}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                `);
+                $('#budget_download').attr('href', `${baseUrl}/${road.budget}`);
+                $('#budget_download').show();
+            }
+
+            if(road.planning){
+                $('#planning').html(`
+                    <iframe src="${baseUrl}/${road.planning}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                `);
+                $('#planning_download').attr('href', `${baseUrl}/${road.planning}`);
+                $('#planning_download').show();
+            }
+
+            if(road.type === 'Jalan'){
+                $('#roadType').show();
+                $('#riverType').hide();
+            } else {
+                $('#roadType').hide();
+                $('#riverType').show();
+            }
+
             $('#detailMapLeft').html(`
                 <p class="fs-4"><strong>Jalan:</strong> ${road.name} </p>
-                <p class="fs-4"><strong>Kondisi:</strong> ${road.condition}</p>
-                <p class="fs-4"><strong>Perkerasan:</strong> ${road.paving}</p>
+                <p class="fs-4"><strong>Usulan:</strong> ${road.proposal_source} </p>
+                <p class="fs-4"><strong>Kondisi:</strong> <span class="badge bg-${badgeClass} text-capitalize">${road.condition} </span></p>
+                <p class="fs-4"><strong>Perkerasan:</strong> <span class="badge bg-${badgePaving} text-capitalize">${road.paving}</span></p>
+                <p class="fs-4"><strong>Status:</strong> <span class="badge bg-${badgeStatus} text-capitalize">${road.status}</span></p>
             `);
             $('#detailMapRight').html(`
+                <p class="fs-4"><strong>Kecamatan:</strong> ${road.district}</p>
                 <p class="fs-4"><strong>Lokasi:</strong> ${road.location}</p>
+                <p class="fs-4"><strong>Kepadatan:</strong> <span class="badge bg-${badgePopulation} text-capitalize">${road.population}</span></p>
                 <p class="fs-4"><strong>Panjang:</strong> ${road.length} m</p>
                 <p class="fs-4"><strong>Lebar:</strong> ${road.width} m</p>
             `);
             $('#roadDetailModal').modal('show');
+        });
+
+        polyline.on('mouseover', function (e) {
+            this.openPopup(e.latlng);
+        });
+        polyline.on('mouseout', function () {
+            this.closePopup();
         });
     }
 

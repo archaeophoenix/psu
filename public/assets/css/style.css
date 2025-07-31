@@ -109,7 +109,7 @@ h2,
   --bs-dark-border-subtle: #adb5bd;
   --bs-white-rgb: 255, 255, 255;
   --bs-black-rgb: 0, 0, 0;
-  --bs-font-sans-serif: "Public Sans", sans-serif;
+  --bs-font-sans-serif: "Poppins", sans-serif;
   --bs-font-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   --bs-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
   --bs-body-font-family: var(--bs-font-sans-serif);
@@ -3855,6 +3855,8 @@ textarea.form-control-lg {
 .nav-link:hover, .nav-link:focus {
   color: var(--bs-nav-link-hover-color);
   text-decoration: none;
+  background-color: rgba(0, 100, 255, 0.1);
+  border-radius: 10px;
 }
 .nav-link:focus-visible {
   outline: 0;
@@ -6108,7 +6110,7 @@ textarea.form-control-lg {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 2%;
+  width: 3%;
   padding: 0;
   color: #ffffff;
   text-align: center;
@@ -16768,6 +16770,7 @@ pre[class*=language-] > code {
 .pc-header .dropdown-user-profile .drp-tabs .nav-link:hover {
   border-color: transparent;
   color: #1890ff;
+  transform: translateY(-25%);
 }
 .pc-header .dropdown-user-profile .drp-tabs .nav-link:hover .material-icons-two-tone {
   background-color: #1890ff;
@@ -21880,7 +21883,7 @@ select.form-control[data-multiselectsplitter-firstselect-selector], select.form-
 
 .choices__list--dropdown {
   visibility: hidden;
-  z-index: 1;
+  z-index: 9999;
   position: absolute;
   width: 100%;
   background-color: #ffffff;

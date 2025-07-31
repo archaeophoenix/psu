@@ -69,3 +69,13 @@ function resetMap() {
 function finishDrawing() {
     alert('Polyline telah selesai. Klik Simpan untuk menyimpan koordinat.');
 }
+
+$('#village_id').on('change', function () {
+    const slot = $('#village_id option:selected').attr('slot');
+    const polyline = slot ? slot.split(',') : '';
+    if(polyline.length){
+        const lat = parseFloat(polyline[0]);
+        const lng = parseFloat(polyline[1]);
+        map2.setView([lat, lng], 15);
+    }
+});

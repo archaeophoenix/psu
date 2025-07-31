@@ -3,11 +3,11 @@
         <div class="m-header">
             <a href="/" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="assets/images/favicon.png" class="img-fluid logo-lg" alt="logo"> Si PETA PSU
+                <img src="{{ asset('assets/images/favicon.png') }}" srcset="" class="img-fluid logo-lg" alt="logo"> Si PETA PSU
             </a>
         </div>
         <div class="navbar-content">
-            <ul class="pc-navbar">
+            <ul class="pc-navbar" style="font-family: 'Bebas Neue', sans-serif; font-size: 28px; text-transform: uppercase; line-height: 1.2; padding: 15px 20px;">
                 <x-nav-link href="/dashboard" :active="request()->is('/')" ti="dashboard">Dashboard</x-nav-link>
 
                 <li class="pc-item pc-caption">
@@ -17,7 +17,7 @@
 
                 <x-nav-link href="/peta" :active="request()->is('/peta')" ti="map">Peta</x-nav-link>
                 <x-nav-link href="/pengaduan" :active="request()->is('/pengaduan')" ti="map-route">Data Pengaduan</x-nav-link>
-                <x-nav-link href="/form-pengaduan" :active="request()->is('/form-pengaduan')" ti="route">Buat Pengaduan</x-nav-link>
+                <x-nav-link href="/pengaduan/create" :active="request()->is('/pengaduan/create')" ti="route">Buat Pengaduan</x-nav-link>
 
                 <li class="pc-item pc-caption">
                     <label>Informasi</label>
@@ -25,7 +25,7 @@
                 </li>
 
                 <x-nav-link href="/artikel" :active="request()->is('/artikel')" ti="article-filled-filled">Artikel</x-nav-link>
-                <x-nav-link href="/form-artikel" :active="request()->is('/form-artikel')" ti="playlist-add">Buat Artikel</x-nav-link>
+                <x-nav-link href="/artikel/create" :active="request()->is('/artikel/create')" ti="playlist-add">Buat Artikel</x-nav-link>
 
                 <li class="pc-item pc-caption">
                     <label>User</label>

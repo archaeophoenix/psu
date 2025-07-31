@@ -7,7 +7,7 @@
 
     </head>
 
-    <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light">
+    <body data-pc-preset="preset-1" data-pc-direction="ltr" data-pc-theme="light" class="gradient">
 
         <div class="loader-bg">
             <div class="loader-track">

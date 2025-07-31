@@ -33,14 +33,14 @@ class BarChart {
                 position: 'top',
                 horizontalAlign: 'right',
                 show: true,
-                fontFamily: `'Public Sans', sans-serif`,
+                fontFamily: `'Bebas Neue', sans-serif`,
                 offsetX: 10,
                 offsetY: 10,
                 labels: {
                     useSeriesColors: false
                 },
                 markers: {
-                    width: 10,
+                    width: 15,
                     height: 10,
                     radius: '50%',
                     offsexX: 2,

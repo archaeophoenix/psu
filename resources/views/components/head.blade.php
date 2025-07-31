@@ -6,4 +6,4 @@
 <meta name="keywords" content=" Si Peta PSU adalah Sistem Informasi Perencanaan dan Pengelolaan Infrastruktur Jalan dan Drainase yang bertujuan untuk meningkatkan efisiensi dan transparansi dalam perencanaan infrastruktur di wilayah perkotaan.">
 <meta name="author" content="Si Peta PSU">
 
-<link rel="icon" href="assets/images/favicon.png" type="image/x-icon">
+<link rel="icon" href="{{ asset('assets/images/favicon.png') }}" type="image/x-icon">

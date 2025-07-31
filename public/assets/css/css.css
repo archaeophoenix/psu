@@ -26,7 +26,7 @@
     transform: translate(-50%, -50%);
     color: white;
     text-align: center;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     padding: 20px;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
@@ -35,14 +35,12 @@
 @media (max-width: 768px) {
     .bg-container {
         padding-bottom: 75%;
-        /* Rasio aspek 4:3 atau sesuaikan untuk tablet */
     }
 }
 
 @media (max-width: 480px) {
     .bg-container {
         padding-bottom: 100%;
-        /* Rasio aspek 1:1 atau sesuaikan untuk ponsel */
     }
 }
 
@@ -65,4 +63,38 @@
     height: 92px;
     margin-top: -92px;
     visibility: hidden;
+}
+
+.legend {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 5px;
+    backdrop-filter: blur(1px);
+    box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+}
+
+.info {
+    border-radius: 10px;
+}
+
+.gradient {
+    background:
+        linear-gradient(322deg, #ba8aff, rgba(186, 74, 255, 0) 70%),
+        linear-gradient(178deg, #baf0ff, rgba(0, 138, 255, 0) 70%),
+        linear-gradient(24deg, #00ffc6, rgba(0, 255, 198, 0) 35%);
+}
+
+thead th {
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pc-navbar .navbar-nav{
+    font-family: 'Bebas Neue', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.choices__list--dropdown {
+    z-index: 9999 !important;
 }

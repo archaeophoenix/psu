@@ -1,4 +1,4 @@
-<div class="modal fade" id="customer-modal" data-bs-keyboard="false" tabindex="-1" style="display: none;" aria-hidden="true">
+<div class="modal fade" id="customer-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" style="display: none;" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
         <div class="modal-content">
             <div class="modal-header border-0 pb-0">

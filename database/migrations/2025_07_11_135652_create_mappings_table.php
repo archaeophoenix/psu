@@ -14,22 +14,27 @@ return new class extends Migration
         Schema::create('mappings', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('location');
+            $table->string('district_id');
+            $table->string('village_id');
             $table->string('proposal_source');
             $table->string('proposal_year')->nullable();
             $table->string('planning_year')->nullable();
+            $table->string('planning')->nullable();
+            $table->string('budget')->nullable();
             $table->string('execution_year')->nullable();
+            $table->string('photo')->nullable();
+            $table->enum('population',['Tinggi', 'Sedang', 'Rendah', 'Tidak diketahui'])->nullable();
             $table->enum('condition',['Baik', 'Rusak Ringan', 'Rusak Sedang', 'Rusak Berat', 'Tidak diketahui'])->nullable();
-            $table->enum('paving',['Aspal', 'Beton', 'Tanah', 'Tidak diketahui'])->nullable(); //pengerasan
-            // $table->integer('road_status_id');
+            $table->enum('paving',['Aspal', 'Beton', 'Tanah', 'Tidak diketahui'])->nullable(); //perkerasan
             $table->enum('type', ['Jalan', 'Drainase'])->default('Jalan');
             $table->enum('status', ['Usulan', 'Valid', 'Perencanaan', 'Eksisting'])->default('Usulan');
-            $table->integer('created_by')->nullable()->default(0);
-            $table->integer('updated_by')->nullable()->default(0);
             $table->double('length');
             $table->double('width');
             $table->geometry('polyline')->nullable();
+            $table->integer('created_by')->nullable()->default(0);
+            $table->integer('updated_by')->nullable()->default(0);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

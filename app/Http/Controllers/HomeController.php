@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Articles;
 use App\Models\Mapping;
 use App\Http\Controllers\Controller;
+use App\Models\District;
 use Illuminate\Support\Facades\DB;
 
 
@@ -24,9 +25,21 @@ class HomeController extends Controller
         $articles = collect($articles);
         $articles = $articles->chunk(3);
         $articles->toArray();
-
+        $districts = District::with('villages')->get()->map(function ($mapping) {
+            return [
+                'id' => $mapping->id,
+                'name' => $mapping->name,
+                'villages' => $mapping->villages->map(function ($village) {
+                    return [
+                        'id' => $village->id,
+                        'name' => $village->name
+                    ];
+                })->toArray()
+            ];
+        });
 
         return view('home.index', [
+            'districts' => $districts,
             'villages' => collect(village())->groupBy('kecamatan_id'),
             'description' => 'Selamat datang di Beranda PSU',
             'articles' => $articles,

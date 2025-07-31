@@ -5,13 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Mapping extends Model
 {
+    use SoftDeletes;
+
     protected $fillable = [
-        'name', 'location', 'proposal_source', 'proposal_year', 'planning_year',
-        'execution_year', 'condition', 'paving', 'type', 'status',
-        'created_by', 'updated_by', 'length', 'width', 'polyline'
+        'name', 'district_id', 'village_id', 'proposal_source', 'proposal_year', 'planning_year', 'planning', 'budget', 'execution_year', 'photo', 'population', 'condition', 'paving', 'type', 'status', 'length', 'width', 'polyline', 'created_by', 'updated_by'
     ];
 
     protected $casts = [
@@ -20,7 +21,7 @@ class Mapping extends Model
 
     function getMappingData($year = null) {
         return DB::select("
-            SELECT `name`, `type`, `length`, `width`, `condition`, `location`, `paving`, `status`, ST_AsText(polyline) AS `polyline`
+            SELECT `name`, `type`, `length`, `width`, `condition`, `village_id`, `district_id`, `paving`, `status`, ST_AsText(polyline) AS `polyline`
             FROM mappings
             WHERE `proposal_year` = ?
             ", [$year]);
@@ -39,27 +40,48 @@ class Mapping extends Model
         }, $points);
     }
 
-    public static function getAllMapping($year = null) : array {
-        $instance = new static();
-        $year = $year ?: Carbon::now()->year;
-        $mappings = $instance->getMappingData($year);
-        $result = [];
+    public function getPolylineTextAttribute()
+    {
+        return DB::table($this->table)
+            ->selectRaw('ST_AsText(polyline) as text')
+            ->where('id', $this->id)
+            ->value('text');
+    }
 
-        foreach ($mappings as $mapping) {
-            $result[] = [
-                'name' => $mapping->name,
-                'type' => $mapping->type,
-                'length' => $mapping->length,
-                'width' => $mapping->width,
-                'condition' => $mapping->condition,
-                'location' => $mapping->location,
-                'paving' => $mapping->paving,
-                'status' => $mapping->status,
-                'polyline' => json_encode($instance->parseMultiPoint($mapping->polyline)),
+    public function getPolylineArrayAttribute()
+    {
+        $text = $this->polyline_text;
+
+        $wkt = str_replace(['MULTIPOINT((', '))'], '', $text);
+        $points = explode('),(', $wkt);
+
+        return array_map(function ($point) {
+            [$lng, $lat] = explode(' ', trim($point));
+            return [
+                (float) $lat,
+                (float) $lng,
             ];
-        }
+        }, $points);
+    }
 
-        return $result;
 
+    public function village()
+    {
+        return $this->belongsTo(Village::class);
+    }
+
+    public function district()
+    {
+        return $this->village?->district();
+    }
+
+        public function getVillageNameAttribute()
+    {
+        return $this->village?->name;
+    }
+
+    public function getDistrictNameAttribute()
+    {
+        return $this->village?->district?->name;
     }
 }

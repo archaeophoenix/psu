@@ -18,7 +18,7 @@
 
                     <div class="row">
                         <div class="col-sm-4">
-                            <a class="btn btn-primary" role="button" href="/form-artikel"><i class="ti ti-route-2"></i> Buat Artikel</a>
+                            <a class="btn btn-outline-primary" role="button" href="/artikel/create"><i class="ti ti-route-2"></i> Buat Artikel</a>
                         </div>
                         <div class="col-sm-4">
                             <div class="form-group">

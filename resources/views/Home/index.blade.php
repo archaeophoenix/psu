@@ -45,7 +45,7 @@
                 <div class="card-body">
                     <form id="map-filter">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select class="form-control" id="map-year">
                                         @foreach ($years as $year)
@@ -56,7 +56,7 @@
                             </div>
                         </div>
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select name="location" id="location" class="select2 form-control">
                                         <option value="" selected>Pilih semua Kelurahan / Desa</option>
@@ -72,7 +72,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select class="form-control" name="condition" id="condition">
                                         <option value="" selected>Semua Kondisi</option>
@@ -83,7 +83,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select class="form-control" name="type" id="type">
                                         <option value="Jalan" selected>Jalan</option>
@@ -91,17 +91,17 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select class="form-control" name="paving" id="paving">
-                                        <option value="" selected>Semua Jenis Pengerasan</option>
+                                        <option value="" selected>Semua Jenis Perkerasan</option>
                                         <option value="Aspal">Aspal</option>
                                         <option value="Beton">Beton</option>
                                         <option value="Tanah">Tanah</option>
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-md-4">
                                 <div class="form-group">
                                     <select class="form-control" name="status" id="status">
                                         <option value="" selected>Semua Status</option>
@@ -112,8 +112,8 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
-                                <button type="submit" class="btn btn-info" role="button"><i class="ti ti-report-search"></i> Cari</button>
+                            <div class="col-md-4">
+                                <button type="submit" class="btn btn-outline-info" role="button"><i class="ti ti-report-search"></i> Cari</button>
                             </div>
                         </div>
                     </form>
@@ -170,14 +170,14 @@
                             <div id="sales-report-chart"></div>
                         </div>
                         <div class="col-md-12 col-xl-6">
-                            <div id="radialBar-chart-2"></div>
+                            <div id="radialBar-chart-2" style="padding-top: 78px;"></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <span class="anchor" id="laporan"></span>
+        {{-- <span class="anchor" id="laporan"></span>
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
@@ -193,7 +193,7 @@
                                             <div class="form-group">
                                                 <label class="form-label">Kelurahan / Desa</label>
                                                 <input type="hidden" id="polyline-coordinates" class="form-control" name="polyline">
-                                                <select name="kelurahan" class="select2 form-control" required>
+                                                <select name="kelurahan" class="form-control select2" required>
                                                     <option value="" disabled selected>Pilih Kelurahan / Desa</option>
                                                     @foreach ($villages as $kecamatan => $kelurahanGroup)
                                                         <optgroup label="{{ $kelurahanGroup->first()['kecamatan'] }}">
@@ -256,21 +256,15 @@
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="form-group">
-                                                <label class="form-label">Pengerasan</label>
+                                                <label class="form-label">Perkerasan</label>
                                                 <select class="form-control" required>
-                                                    <option value="" disabled selected>Pilih Jenis Pengerasan</option>
+                                                    <option value="" disabled selected>Pilih Jenis Perkerasan</option>
                                                     <option value="1">Aspal</option>
                                                     <option value="2">Beton</option>
                                                     <option value="3">Tanah</option>
                                                 </select>
                                             </div>
                                         </div>
-                                        {{-- <div class="col-sm-6">
-                                            <div class="form-group">
-                                                <label class="form-label">Gambar</label>
-                                                <input type="file" class="form-control" id="inputGroupFile01" required>
-                                            </div>
-                                        </div> --}}
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-12">
@@ -279,9 +273,9 @@
                                             <label class="form-label">Peta Perencanaan</label>
                                             <div id="mapid2" style="height: 400px; margin-bottom: 20px; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
                                             <div style="margin-bottom: 20px;">
-                                                <button type="button" class="btn btn-warning" onclick="undoLastPoint()">↩️ Undo Titik Terakhir</button>
-                                                <button type="button" class="btn btn-danger" onclick="resetMap()">🔄 Reset Semua Titik</button>
-                                                <button type="button" class="btn btn-success" onclick="finishDrawing()">✅ Selesai Menggambar</button>
+                                                <button type="button" class="btn btn-outline-warning" onclick="undoLastPoint()"><i class="ti ti-history"></i> Undo Titik Terakhir</button>
+                                                <button type="button" class="btn btn-outline-danger" onclick="resetMap()"><i class="ti ti-refresh-dot"></i> Reset Semua Titik</button>
+                                                <button type="button" class="btn btn-outline-success" onclick="finishDrawing()"><i class="ti ti-map-pin-check"></i> Selesai Menggambar</button>
                                             </div>
                                         </div>
                                     </div>
@@ -289,13 +283,13 @@
                             </div>
                         </div>
                         <div class="card-footer">
-                            <button class="btn btn-primary me-2">Submit</button>
-                            <button type="reset" class="btn btn-light">Reset</button>
+                            <button class="btn btn-outline-primary me-2">Submit</button>
+                            <button type="reset" class="btn btn-outline-secondary">Reset</button>
                         </div>
                     </form>
                 </div>
             </div>
-        </div>
+        </div> --}}
 
         <span class="anchor" id="info"></span>
         <div class="card-group">
@@ -344,7 +338,8 @@
         </div>
     </div>
 
-    <x-modal-road></x-modal-road>
     <x-modal></x-modal>
+
+    <x-modal-road></x-modal-road>
 
 </x-layout>

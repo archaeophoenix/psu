@@ -13,12 +13,14 @@ class DashboardController extends Controller
     public function index()
     {
         $years = Mapping::select('proposal_year')->distinct()->get();
-        $counts = Mapping::query()
-                    ->select('status', DB::raw('COUNT(*) as total'))
-                    ->whereIn('status', ['Usulan','Valid','Perencanaan','Eksisting'])
-                    ->where('proposal_year', date('Y'))
-                    ->groupBy('status')
-                    ->get()->toArray();
+        $statuses = ['Usulan', 'Valid', 'Perencanaan', 'Eksisting'];
+        $query = Mapping::query()->where('proposal_year', date('Y'));
+        $statusData = [];
+
+        foreach ($statuses as $status) {
+            $statusData[$status] = (clone $query)->where('status', $status)->count();
+        }
+
         $statusColor = [
             'Usulan' => 'red-900',
             'Valid' => 'warning',
@@ -36,7 +38,7 @@ class DashboardController extends Controller
         return view('dashboard.index', [
             'title' => 'Dashboard',
             'description' => 'Selamat datang di Dashboard PSU',
-            'counts'=> $counts,
+            'statusData'=> $statusData,
             'years' => collect($years)->pluck('proposal_year')->toArray(),
             'statusColor' => $statusColor,
             'statusIcon' => $statusIcon

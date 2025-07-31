@@ -4,9 +4,7 @@
 
     <div class="page-header">
         <div class="page-block">
-            <div class="row align-items-center">
-
-            </div>
+            <div class="row align-items-center"></div>
         </div>
     </div>
 
@@ -14,29 +12,30 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <h5>Form Pengaduan Masyarakat Usulan Perbaikan/Pembangunan</h5>
+                    <h5>Form Pengaduan Usulan Perbaikan/Pembangunan</h5>
                 </div>
-                <form class="validate-me" id="validate-me" method="POST" data-validate>
+                <form class="validate-me" enctype="multipart/form-data" id="validate-me" method="POST" action="{{ route('proposal.store') }}" data-validate>
+                    @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="col-lg-6 col-md-12">
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="form-label">Kelurahan / Desa</label>
+                                            <label class="form-label">Kecamatan</label>
                                             <input type="hidden" id="polyline-coordinates" class="form-control" name="polyline">
-                                            <select name="location" class="form-control" required>
-                                                <option value="" disabled selected>Pilih Kelurahan / Desa</option>
-                                                @foreach ($villages as $kecamatan => $kelurahanGroup)
-                                                    <optgroup label="{{ $kelurahanGroup->first()['kecamatan'] }}">
-                                                        @foreach ($kelurahanGroup as $kelurahan)
-                                                            <option slot="{{ $kelurahan['kelurahan_lat'] }} - {{ $kelurahan['kelurahan_long'] }}" value="{{ $kelurahan['kelurahan'] }}">
-                                                                {{ $kelurahan['kelurahan'] }}
-                                                            </option>
-                                                        @endforeach
-                                                    </optgroup>
+                                            <select name="district_id" id="district_id" class="form-control select2" required>
+                                                <option value="" disabled selected>Pilih Kecamatan</option>
+                                                @foreach ($districts as $district)
+                                                    <option slot='{!! json_encode($district['villages']) !!}' value="{{ $district['id'] }}">{{ $district['name'] }}</option>
                                                 @endforeach
                                             </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Kelurahan / Desa</label>
+                                            <select name="village_id" id="village_id" class="form-control select2" required></select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
@@ -69,10 +68,21 @@
                                             <label class="form-label">Kondisi</label>
                                             <select class="form-control" name="condition" required>
                                                 <option value="" disabled selected>Pilih Jenis Kondisi</option>
-                                                <option value="1">Baik</option>
-                                                <option value="2">Rusak Ringan</option>
-                                                <option value="3">Rusak Sedang</option>
-                                                <option value="4">Rusak Berat</option>
+                                                <option value="Baik">Baik</option>
+                                                <option value="Rusak Ringan">Rusak Ringan</option>
+                                                <option value="Rusak Sedang">Rusak Sedang</option>
+                                                <option value="Rusak Berat">Rusak Berat</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Kepadatan Penduduk</label>
+                                            <select class="form-control" name="population" required>
+                                                <option value="" disabled selected>Pilih Kepadatan Penduduk</option>
+                                                <option value="Tinggi">Tinggi</option>
+                                                <option value="Sedang">Sedang</option>
+                                                <option value="Rendah">Rendah</option>
                                             </select>
                                         </div>
                                     </div>
@@ -81,28 +91,41 @@
                                             <label class="form-label">Yang Diadukan</label>
                                             <select class="form-control" name="type" required>
                                                 <option value="" disabled selected>Pilih Yang Diadukan</option>
-                                                <option value="1">Jalan</option>
-                                                <option value="2">Drainase</option>
+                                                <option value="Jalan">Jalan</option>
+                                                <option value="Drainase">Drainase</option>
                                             </select>
                                         </div>
                                     </div>
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label class="form-label">Pengerasan</label>
+                                            <label class="form-label">Perkerasan</label>
                                             <select class="form-control" name="paving" required>
-                                                <option value="" disabled selected>Pilih Jenis Pengerasan</option>
-                                                <option value="1">Aspal</option>
-                                                <option value="2">Beton</option>
-                                                <option value="3">Tanah</option>
+                                                <option value="" disabled selected>Pilih Jenis Perkerasan</option>
+                                                <option value="Aspal">Aspal</option>
+                                                <option value="Beton">Beton</option>
+                                                <option value="Tanah">Tanah</option>
                                             </select>
                                         </div>
                                     </div>
-                                    {{-- <div class="col-sm-6">
+                                    <div class="col-sm-6">
+                                        <div class="form-group">
+                                            <label class="form-label">Status</label>
+                                            <select class="form-control" name="status" required>
+                                                <option value="" disabled selected>Pilih Status</option>
+                                                <option value="Eksisting">Eksisting</option>
+                                                <option value="Valid">Valid</option>
+                                                <option value="Usulan">Usulan</option>
+                                                <option value="Perencanaan">Perencanaan</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-6">
                                         <div class="form-group">
                                             <label class="form-label">Gambar</label>
-                                            <input type="file" class="form-control" id="inputGroupFile01" required>
+                                            <input type="file" multiple class="form-control img-input" name="photo[]" accept="image/*" {{ isset($article) ? '' : 'required' }}>
+
                                         </div>
-                                    </div> --}}
+                                    </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-12">
@@ -111,18 +134,21 @@
                                         <label class="form-label">Peta Perencanaan</label>
                                         <div id="mapid2" style="height: 400px; margin-bottom: 20px; position: relative;" class="leaflet-container leaflet-touch leaflet-retina leaflet-fade-anim leaflet-grab leaflet-touch-drag leaflet-touch-zoom" tabindex="0"></div>
                                         <div style="margin-bottom: 20px;">
-                                            <button type="button" class="btn btn-warning" onclick="undoLastPoint()">↩️ Undo Titik Terakhir</button>
-                                            <button type="button" class="btn btn-danger" onclick="resetMap()">🔄 Reset Semua Titik</button>
-                                            <button type="button" class="btn btn-success" onclick="finishDrawing()">✅ Selesai Menggambar</button>
+                                            <button type="button" class="btn btn-outline-warning" onclick="undoLastPoint()"><i class="ti ti-history"></i> Undo Titik Terakhir</button>
+                                            <button type="button" class="btn btn-outline-danger" onclick="resetMap()"><i class="ti ti-refresh-dot"></i> Reset Semua Titik</button>
+                                            <button type="button" class="btn btn-outline-success" onclick="finishDrawing()"><i class="ti ti-map-pin-check"></i> Selesai Menggambar</button>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div id="preview" style="margin-top: 10px; display: flex; flex-wrap: wrap;"></div>
+                            </div>
                         </div>
                     </div>
                     <div class="card-footer">
-                        <button type="submit" class="btn btn-primary me-2">Submit</button>
-                        <button type="reset" class="btn btn-light">Reset</button>
+                        <button type="submit" class="btn btn-outline-primary me-2">Submit</button>
+                        <button type="reset" class="btn btn-outline-dark">Reset</button>
                     </div>
                 </form>
             </div>

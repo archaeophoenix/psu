@@ -66,7 +66,7 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <select class="form-control" name="paving" id="paving">
-                                        <option value="" selected>Semua Jenis Pengerasan</option>
+                                        <option value="" selected>Semua Jenis Perkerasan</option>
                                         <option value="Aspal">Aspal</option>
                                         <option value="Beton">Beton</option>
                                         <option value="Tanah">Tanah</option>
@@ -85,7 +85,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-4">
-                                <button type="submit" class="btn btn-info" role="button"><i class="ti ti-report-search"></i> Cari</button>
+                                <button type="submit" class="btn btn-outline-info" role="button"><i class="ti ti-report-search"></i> Cari</button>
                             </div>
                         </div>
                     </form>
@@ -94,5 +94,7 @@
             </div>
         </div>
     </div>
+
+    <x-modal-road></x-modal-road>
 
 </x-layout>

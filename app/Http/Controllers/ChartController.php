@@ -13,7 +13,6 @@ class ChartController extends Controller
         $kec = $request->query('kecamatan');
         $paving = $request->query('perkerasan');
 
-        // Base query
         $query = Mapping::query()->whereIn('type', ['Jalan', 'Drainase']);
 
         if ($year) {

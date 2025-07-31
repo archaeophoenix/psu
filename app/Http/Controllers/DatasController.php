@@ -13,7 +13,7 @@ class DatasController extends Controller
     {
         $year = $request->query('tahun', Carbon::now()->year);
 
-        $query = Mapping::query();
+        $query = Mapping::with('village.district')->where('proposal_year', $year);
 
         if ($year) {
             $query->where('proposal_year', $year);
@@ -31,7 +31,31 @@ class DatasController extends Controller
     {
         $year = $request->query('tahun', Carbon::now()->year);
 
-        $mappings = Mapping::getAllMapping($year);
+        $mappings = Mapping::with('village.district')->where('proposal_year', $year)->get()->map(function ($mapping) {
+            return [
+                'id' => $mapping->id,
+                'name' => $mapping->name,
+                'type' => $mapping->type,
+                'length' => $mapping->length,
+                'width' => $mapping->width,
+                'condition' => $mapping->condition,
+                'paving' => $mapping->paving,
+                'status' => $mapping->status,
+                'polyline' => json_encode($mapping->polyline_array),
+                'location' => $mapping->village_name,
+                'village_id' => $mapping->village_id,
+                'district' => $mapping->district_name,
+                'district_id' => $mapping->district_id,
+                'proposal_source' => $mapping->proposal_source,
+                'proposal_year' => $mapping->proposal_year,
+                'planning_year' => $mapping->planning_year,
+                'execution_year' => $mapping->execution_year,
+                'planning' => $mapping->planning,
+                'budget' => $mapping->budget,
+                'photo' => $mapping->photo,
+                'population' => $mapping->population
+            ];
+        });
 
         return response()->json([
             'data' => $mappings,

@@ -397,6 +397,10 @@ function font_change(name) {
     name = 'Public Sans';
     srcs = 'https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;600;700&display=swap';
   }
+  if (name == 'Bebas-Neue' || name == 'Bebas Neue') {
+    name = 'Bebas Neue';
+    srcs = 'https://fonts.googleapis.com/css2?family=Bebas+Neue:wght@400;600&display=swap';
+  }
   document.querySelector('#main-font-link').setAttribute('href', srcs);
   document.querySelector('body').setAttribute('style', 'font-family:"' + name + '", sans-serif');
   if (name == 'Public Sans') {

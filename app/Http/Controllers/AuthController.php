@@ -1,8 +1,11 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -13,23 +16,21 @@ class AuthController extends Controller
 
     public function login(Request $request)
     {
-        $request->validate([
+        $credentials = $request->validate([
             'username' => 'required',
             'password' => 'required',
         ]);
 
-        if (Auth::attempt([
-            'username' => $request->username,
-            'password' => $request->password,
-        ])) {
-            dd('login');
-            // $request->session()->regenerate();
-            // return redirect()->intended('/dashboard');
+        $credentials['status'] = 'active';
+
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->intended('/dashboard');
         }
 
         return back()->withErrors([
-            'username' => 'Username atau password salah.',
-        ])->withInput();
+            'username' => 'Username atau Password salah.',
+        ]);
     }
 
     public function logout(Request $request)
@@ -37,7 +38,6 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-
         return redirect('/login');
     }
 }

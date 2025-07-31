@@ -12,7 +12,7 @@
                         </div>
                         <div class="container-fluid px-0">
                             <a class="navbar-brand font-weight-bolder ms-sm-3" rel="tooltip" title="Si Peta PSU" data-placement="bottom">
-                                <img id="logo-psu" src="assets/images/favicon.png" alt="Si PETA PSU"> Si PETA PSU </a>
+                                <img id="logo-psu" src="{{ asset('assets/images/favicon.png') }}" class="img-fluid logo-lg" alt="Si PETA PSU"> Si PETA PSU </a>
                             <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon mt-2">
                                     <span class="navbar-toggler-bar bar1"></span>
@@ -21,7 +21,7 @@
                                 </span>
                             </button>
                             <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation" style="background: white;">
-                                <ul class="navbar-nav navbar-nav-hover mx-auto">
+                                <ul class="navbar-nav navbar-nav-hover mx-auto" style="font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 1px; padding: 15px 20px;">
                                     <li class="nav-item dropdown dropdown-hover mx-2">
                                         <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#beranda"> Beranda </a>
                                     </li>
@@ -31,25 +31,46 @@
                                     <li class="nav-item dropdown dropdown-hover mx-2">
                                         <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#statis"> Statistik </a>
                                     </li>
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
+                                    {{-- <li class="nav-item dropdown dropdown-hover mx-2">
                                         <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#laporan"> Pengaduan </a>
-                                    </li>
+                                    </li> --}}
                                     <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#info"> Galeri </a>
-                                    </li>
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <form class="header-search">
-                                            <i data-feather="search" class="icon-search"></i>
-                                            <input type="search" class="form-control" placeholder="Search here. . .">
-                                        </form>
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#info"> Artikel </a>
                                     </li>
                                 </ul>
-                                <ul class="navbar-nav d-lg-block d-none">
+                                <ul class="list-unstyled">
                                     <li class="dropdown pc-h-item header-user-profile">
-                                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside" aria-expanded="false">
-                                            <img src="assets/images/user/avatar-2.jpg" alt="user-image" class="user-avtar">
-                                            <span>Stebin Ben</span>
+                                        @auth
+                                        <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
+                                            href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside"
+                                            aria-expanded="false">
+                                            <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
+                                            <span>{{ Auth::user()->name }}</span>
                                         </a>
+                                        <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
+                                            <div class="dropdown-header">
+                                                <div class="d-flex mb-1">
+                                                    <div class="flex-shrink-0">
+                                                        <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image"
+                                                            class="user-avtar wid-35">
+                                                    </div>
+                                                    <div class="flex-grow-1 ms-3">
+                                                        <h6 class="mb-1">{{ Auth::user()->name }}</h6>
+                                                        <span>{{ Auth::user()->username }}</span>
+                                                    </div>
+                                                    <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                        <button type="submit" class="pc-head-link bg-transparent"><i class="ti ti-power text-danger"></i></button>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        @else
+                                            <a class="pc-head-link dropdown-toggle arrow-none me-0" href="{{ route('login') }}" role="button" aria-haspopup="false" aria-expanded="false">
+                                                <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
+                                                <span>Login</span>
+                                            </a>
+                                        @endauth
                                     </li>
                                 </ul>
                             </div>

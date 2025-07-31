@@ -196,7 +196,7 @@ function floatchart() {
                 position: 'top',
                 horizontalAlign: 'right',
                 show: true,
-                fontFamily: `'Public Sans', sans-serif`,
+                fontFamily: `'Bebas Neue', sans-serif`,
                 offsetX: 10,
                 offsetY: 10,
                 labels: {
