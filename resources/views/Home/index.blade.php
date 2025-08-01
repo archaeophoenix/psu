@@ -4,7 +4,7 @@
 
     <span class=" anchor" id="beranda"></span>
     <div class="page-header">
-        <div class="col-md-12 bg-container" style="background-image: url('assets/images/bg.svg');background-repeat:no-repeat; background-position:center; width:100%;">
+        <div class="col-md-12 bg-container" style="background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%;">
             <div class="row bg-content">
                 <div class="col-md-12 col-xl-6 d-none d-sm-none d-md-block">
                     <div class="card">
@@ -304,7 +304,7 @@
                                 @foreach ($articleGroup as $article)
                                     <div class="col-lg-4">
                                         <div class="card">
-                                            <img class="img-fluid card-img-top" id="img-{{ $article['slug'] }}" src="{{ $article['img'] }}" alt="{{ $article['title'] }}">
+                                            <img class="img-fluid card-img-top" id="img-{{ $article['slug'] }}" src="{{ asset('public/'.$article['img']) }}" alt="{{ $article['title'] }}">
                                             <div class="card-body">
                                                 <h5 class="card-title" id="title-{{ $article['slug'] }}"">{{ $article['title'] }}</h5>
                                                 <p class="card-text">{{ Str::limit($article['content'], 50) }}</p>

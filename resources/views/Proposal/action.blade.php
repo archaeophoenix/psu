@@ -38,7 +38,7 @@
                                                             @php
                                                                 $activeClass = $key === 0 ? 'active' : '';
                                                             @endphp
-                                                            <div class="carousel-item {{ $activeClass }}"><img src="{{ asset($photo) }}" class="d-block w-100" alt="alt="Road Image {{ $key + 1 }}}"></div>
+                                                            <div class="carousel-item {{ $activeClass }}"><img src="{{ asset('public/' . $photo) }}" class="d-block w-100" alt="alt="Road Image {{ $key + 1 }}}"></div>
                                                         @endforeach
                                                     </div>
                                                     <button class="carousel-control-prev" type="button"
@@ -113,14 +113,14 @@
                                     <div class="col-md-6">
                                         <div class="card-group">
                                             <div class="card" id="planning">
-                                                <iframe src="{{ asset($mapping['planning']) }}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                                                <iframe src="{{ asset('public/' . $mapping['planning']) }}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
                                         <div class="card-group">
                                             <div class="card" id="budget">
-                                                <iframe src="{{ asset($mapping['budget']) }}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                                                <iframe src="{{ asset('public/' . $mapping['budget']) }}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
                                             </div>
                                         </div>
                                     </div>

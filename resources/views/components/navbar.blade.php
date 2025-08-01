@@ -3,7 +3,7 @@
         <div class="m-header">
             <a href="/" class="b-brand text-primary">
                 <!-- ========   Change your logo from here   ============ -->
-                <img src="{{ asset('assets/images/favicon.png') }}" srcset="" class="img-fluid logo-lg" alt="logo"> Si PETA PSU
+                <img src="{{ asset('public/assets/images/favicon.png') }}" srcset="" class="img-fluid logo-lg" alt="logo"> Si PETA PSU
             </a>
         </div>
         <div class="navbar-content">

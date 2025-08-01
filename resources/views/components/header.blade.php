@@ -12,7 +12,7 @@
                         </div>
                         <div class="container-fluid px-0">
                             <a class="navbar-brand font-weight-bolder ms-sm-3" rel="tooltip" title="Si Peta PSU" data-placement="bottom">
-                                <img id="logo-psu" src="{{ asset('assets/images/favicon.png') }}" class="img-fluid logo-lg" alt="Si PETA PSU"> Si PETA PSU </a>
+                                <img id="logo-psu" src="{{ asset('public/assets/images/favicon.png') }}" class="img-fluid logo-lg" alt="Si PETA PSU"> Si PETA PSU </a>
                             <button class="navbar-toggler shadow-none ms-md-2" type="button" data-bs-toggle="collapse" data-bs-target="#navigation" aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
                                 <span class="navbar-toggler-icon mt-2">
                                     <span class="navbar-toggler-bar bar1"></span>
@@ -44,14 +44,14 @@
                                         <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
                                             href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside"
                                             aria-expanded="false">
-                                            <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
+                                            <img src="{{ asset('public/assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
                                             <span>{{ Auth::user()->name }}</span>
                                         </a>
                                         <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
                                             <div class="dropdown-header">
                                                 <div class="d-flex mb-1">
                                                     <div class="flex-shrink-0">
-                                                        <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image"
+                                                        <img src="{{ asset('public/assets/images/user/user.avif') }}" alt="user-image"
                                                             class="user-avtar wid-35">
                                                     </div>
                                                     <div class="flex-grow-1 ms-3">
@@ -67,7 +67,7 @@
                                         </div>
                                         @else
                                             <a class="pc-head-link dropdown-toggle arrow-none me-0" href="{{ route('login') }}" role="button" aria-haspopup="false" aria-expanded="false">
-                                                <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
+                                                <img src="{{ asset('public/assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
                                                 <span>Login</span>
                                             </a>
                                         @endauth

@@ -43,7 +43,7 @@
                     <a class="pc-head-link dropdown-toggle arrow-none me-0" data-bs-toggle="dropdown"
                         href="#" role="button" aria-haspopup="false" data-bs-auto-close="outside"
                         aria-expanded="false">
-                        <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
+                        <img src="{{ asset('public/assets/images/user/user.avif') }}" alt="user-image" class="user-avtar">
                         <span>{{ Auth::user()->name }}</span>
                     </a>
                     <div class="dropdown-menu dropdown-user-profile dropdown-menu-end pc-h-dropdown">
@@ -52,7 +52,7 @@
                                 @csrf
                                 <div class="d-flex mb-1">
                                     <div class="flex-shrink-0">
-                                        <img src="{{ asset('assets/images/user/user.avif') }}" alt="user-image"
+                                        <img src="{{ asset('public/assets/images/user/user.avif') }}" alt="user-image"
                                             class="user-avtar wid-35">
                                     </div>
                                     <div class="flex-grow-1 ms-3">

@@ -313,7 +313,7 @@ for (var t = 0; t < tc.length; t++) {
 // authentication logo
 var tc = document.querySelectorAll('.auth-main.v2 .img-brand');
 for (var t = 0; t < tc.length; t++) {
-  tc[t].setAttribute('src', '../assets/images/favicon2.png');
+  tc[t].setAttribute('src', 'public/assets/images/favicon2.png');
 }
 
 // =======================================================
@@ -457,17 +457,17 @@ function layout_change(layout) {
   if (layout == 'dark') {
     dark_flag = true;
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', 'public/assets/images/favicon2.png');
     }
 
     if (document.querySelector('.navbar-brand .logo-lg')) {
-      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     if (document.querySelector('.auth-main.v1 .auth-sidefooter')) {
-      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     if (document.querySelector('.footer-top .footer-logo')) {
-      document.querySelector('.footer-top .footer-logo').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.footer-top .footer-logo').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     var control = document.querySelector('.theme-layout > a.active');
     if (control) {
@@ -477,16 +477,16 @@ function layout_change(layout) {
   } else {
     dark_flag = false;
     if (document.querySelector('.pc-sidebar .m-header .logo-lg')) {
-      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.pc-sidebar .m-header .logo-lg').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     if (document.querySelector('.navbar-brand .logo-lg')) {
-      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.navbar-brand .logo-lg').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     if (document.querySelector('.auth-main.v1 .auth-sidefooter')) {
-      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.auth-main.v1 .auth-sidefooter img').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     if (document.querySelector('.footer-top .footer-logo')) {
-      document.querySelector('.footer-top .footer-logo').setAttribute('src', '../assets/images/favicon2.png');
+      document.querySelector('.footer-top .footer-logo').setAttribute('src', 'public/assets/images/favicon2.png');
     }
     var control = document.querySelector('.theme-layout > a.active');
     if (control) {

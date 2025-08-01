@@ -161,7 +161,7 @@ function loadTable(mappingYear = '') {
                 searchable: false,
                 render: function (data, type, row) {
                     // edit = window.user ? `<a href="/pengaduan/${row.id}" style="cursor: pointer;" class="edit btn btn-icon btn-link-warning" id="${row.id}"><i class="ti ti-map-pin-cog"></i></a>` : '';
-                    action = window.user && row.budget.length < 1 && row.planning.length < 1  ? `<a href="/pengaduan/action/${row.id}" style="cursor: pointer;" class="edit btn btn-icon btn-link-primary" id="${row.id}"><i class="ti ti-map-star"></i></a>` : '';
+                    action = window.user && row.budget === null && row.planning === null  ? `<a href="/pengaduan/action/${row.id}" style="cursor: pointer;" class="edit btn btn-icon btn-link-primary" id="${row.id}"><i class="ti ti-map-star"></i></a>` : '';
                     return `
                         <input type="hidden" id="photo-${row.id}" value='${row.photo}'>
                         <input type="hidden" id="budget-${row.id}" value='${row.budget}'>
@@ -196,7 +196,7 @@ function loadArticle(articleYear = '') {
                 render: function (data, type, row) {
                     edit = window.user ? `<a href="/artikel/${row.id}" style="cursor: pointer;" class="article-edit btn btn-icon btn-link-warning" id="${row.id}"><i class="ti ti-edit"></i></a>` : '';
                     return `
-                        <img class="d-none img-fluid card-img-top" id="img-${row.slug}" src="${baseUrl}/${row.img}" alt="${row.title}">
+                        <img class="d-none img-fluid card-img-top" id="img-${row.slug}" src="${baseUrl}/public/${row.img}" alt="${row.title}">
                         <h5 class="d-none card-title" id="title-${row.slug}"">${row.title}</h5>
                         <input type="hidden" id="content-${row.slug}" value="${row.content}">
                         <a style="cursor: pointer" class="article btn btn-icon btn-link-info" id="${row.slug}"><i class="ti ti-eye"></i></a>
@@ -415,23 +415,23 @@ $(document).ready(function() {
                 <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" ${activeIndicator} aria-label="Slide ${index + 1}"></button>
             `);
             $('#carouselInner').append(`
-                <div class="carousel-item ${activeItem}"><img src="${baseUrl}/${foto}" class="d-block w-100" alt="alt="Road Image ${index + 1}"></div>
+                <div class="carousel-item ${activeItem}"><img src="${baseUrl}/public/${foto}" class="d-block w-100" alt="alt="Road Image ${index + 1}"></div>
             `);
         });
 
         if(road.budget){
             $('#budget').html(`
-                <iframe src="${baseUrl}/${road.budget}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                <iframe src="${baseUrl}/public/${road.budget}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
             `);
-            $('#budget_download').attr('href', `${baseUrl}/${road.budget}`);
+            $('#budget_download').attr('href', `${baseUrl}/public/${road.budget}`);
             $('#budget_download').show();
         }
 
         if(road.planning){
             $('#planning').html(`
-                <iframe src="${baseUrl}/${road.planning}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                <iframe src="${baseUrl}/public/${road.planning}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
             `);
-            $('#planning_download').attr('href', `${baseUrl}/${road.planning}`);
+            $('#planning_download').attr('href', `${baseUrl}/public/${road.planning}`);
             $('#planning_download').show();
         }
 

@@ -17,6 +17,15 @@ Route::controller(\App\Http\Controllers\DatasController::class)->group(function 
     Route::get('/articles-data', 'getArticles')->name('articles.data');
 });
 
+Route::controller(\App\Http\Controllers\ArticleController::class)->group(function () {
+    Route::get('/artikel', 'index')->name('article.index')->middleware(RoleMiddleware::class.':superadmin,admin');
+    Route::get('/artikel/create', 'create')->name('article.create')->middleware(RoleMiddleware::class.':superadmin,admin');
+    Route::post('/artikel', 'store')->name('article.store')->middleware(RoleMiddleware::class.':superadmin,admin');
+    Route::get('/artikel/{id}', 'edit')->name('article.edit')->middleware(RoleMiddleware::class.':superadmin,admin');
+    Route::put('/artikel/{id}', 'update')->name('article.update')->middleware(RoleMiddleware::class.':superadmin,admin');
+    Route::delete('/artikel/{id}', 'destroy')->name('article.destroy')->middleware(RoleMiddleware::class.':superadmin,admin');
+});
+
 Route::controller(\App\Http\Controllers\ProposalController::class)->group(function () {
     Route::get('/pengaduan', 'index')->name('proposal.index')->middleware(RoleMiddleware::class.':superadmin,admin');
     Route::get('/pengaduan/create', 'create')->name('proposal.create')->middleware(RoleMiddleware::class.':superadmin,admin');
@@ -31,15 +40,6 @@ Route::get('/artikel/{article:slug}', function (Articles $article) {
 
 Route::controller(\App\Http\Controllers\DashboardController::class)->group(function () {
     Route::get('/dashboard', 'index')->name('dashboard')->middleware(RoleMiddleware::class.':superadmin,admin');
-});
-
-Route::controller(\App\Http\Controllers\ArticleController::class)->group(function () {
-    Route::get('/artikel', 'index')->name('article.index')->middleware(RoleMiddleware::class.':superadmin,admin');
-    Route::get('/artikel/create', 'create')->name('article.create')->middleware(RoleMiddleware::class.':superadmin,admin');
-    Route::post('/artikel', 'store')->name('article.store')->middleware(RoleMiddleware::class.':superadmin,admin');
-    Route::get('/artikel/{id}', 'edit')->name('article.edit')->middleware(RoleMiddleware::class.':superadmin,admin');
-    Route::put('/artikel/{id}', 'update')->name('article.update')->middleware(RoleMiddleware::class.':superadmin,admin');
-    Route::delete('/artikel/{id}', 'destroy')->name('article.destroy')->middleware(RoleMiddleware::class.':superadmin,admin');
 });
 
 Route::controller(\App\Http\Controllers\UserController::class)->group(function () {

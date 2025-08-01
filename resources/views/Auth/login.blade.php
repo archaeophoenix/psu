@@ -15,19 +15,19 @@
     <meta name="author" content="CodedThemes">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('assets/images/favicon.svg') }}" type="image/x-icon"> <!-- [Google Font] Family -->
+    <link rel="icon" href="{{ asset('public/assets/images/favicon.svg') }}" type="image/x-icon"> <!-- [Google Font] Family -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" id="main-font-link">
     <!-- [Tabler Icons] https://tablericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/tabler-icons.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/fonts/tabler-icons.min.css') }}">
     <!-- [Feather Icons] https://feathericons.com -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/feather.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/fonts/feather.css') }}">
     <!-- [Font Awesome Icons] https://fontawesome.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/fontawesome.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/fonts/fontawesome.css') }}">
     <!-- [Material Icons] https://fonts.google.com/icons -->
-    <link rel="stylesheet" href="{{ asset('assets/fonts/material.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/fonts/material.css') }}">
     <!-- [Template CSS Files] -->
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" id="main-style-link">
-    <link rel="stylesheet" href="{{ asset('assets/css/style-preset.css') }}">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/style.css') }}" id="main-style-link">
+    <link rel="stylesheet" href="{{ asset('public/assets/css/style-preset.css') }}">
 
 </head>
 <!-- [Head] end -->
@@ -46,7 +46,7 @@
         <div class="auth-wrapper v3">
             <div class="auth-form">
                 <div class="auth-header">
-                    <a href="#"><img src="{{ asset('assets/images/favicon.png') }}" alt="img"></a>
+                    <a href="#"><img src="{{ asset('public/assets/images/favicon.png') }}" alt="img"></a>
                 </div>
                 <div class="card my-5">
                     <div class="card-body">
@@ -86,12 +86,12 @@
     </div>
     <!-- [ Main Content ] end -->
     <!-- Required Js -->
-    <script src="{{ asset('assets/js/plugins/popper.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/simplebar.min.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('assets/js/fonts/custom-font.js') }}"></script>
-    <script src="{{ asset('assets/js/pcoded.js') }}"></script>
-    <script src="{{ asset('assets/js/plugins/feather.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/plugins/popper.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/plugins/simplebar.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/plugins/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('public/assets/js/fonts/custom-font.js') }}"></script>
+    <script src="{{ asset('public/assets/js/pcoded.js') }}"></script>
+    <script src="{{ asset('public/assets/js/plugins/feather.min.js') }}"></script>
 
 
 

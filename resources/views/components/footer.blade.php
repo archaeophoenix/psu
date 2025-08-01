@@ -5,7 +5,7 @@
                 <div class="col-md-4">
                     <div class="row">
                         <div class="col-md-4">
-                            <img src="{{ asset('assets/images/favicon.png') }}" srcset="" alt="image" style="max-height: 80px;"
+                            <img src="{{ asset('public/assets/images/favicon.png') }}" srcset="" alt="image" style="max-height: 80px;"
                                 class="img-fluid mb-3">
                         </div>
                         <div class="col-md-8">

@@ -175,23 +175,23 @@ class RoadMap {
                     <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="${index}" ${activeIndicator} aria-label="Slide ${index + 1}"></button>
                 `);
                 $('#carouselInner').append(`
-                    <div class="carousel-item ${activeItem}"><img src="${baseUrl}/${foto}" class="d-block w-100" alt="alt="Road Image ${index + 1}"></div>
+                    <div class="carousel-item ${activeItem}"><img src="${baseUrl}/public/${foto}" class="d-block w-100" alt="alt="Road Image ${index + 1}"></div>
                 `);
             });
 
             if(road.budget){
                 $('#budget').html(`
-                    <iframe src="${baseUrl}/${road.budget}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                    <iframe src="${baseUrl}/public/${road.budget}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
                 `);
-                $('#budget_download').attr('href', `${baseUrl}/${road.budget}`);
+                $('#budget_download').attr('href', `${baseUrl}/public/${road.budget}`);
                 $('#budget_download').show();
             }
 
             if(road.planning){
                 $('#planning').html(`
-                    <iframe src="${baseUrl}/${road.planning}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
+                    <iframe src="${baseUrl}/public/${road.planning}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
                 `);
-                $('#planning_download').attr('href', `${baseUrl}/${road.planning}`);
+                $('#planning_download').attr('href', `${baseUrl}/public/${road.planning}`);
                 $('#planning_download').show();
             }
 
