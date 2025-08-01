@@ -36,11 +36,20 @@ crossorigin=""></script>
 <script src="{{ asset('public/assets/js/map.js') }}"></script>
 <script src="{{ asset('public/assets/js/main.js') }}"></script>
 <script>
-    $(document).ajaxStart(function() {
+let ajaxRequestCount = 0;
+
+$(document).on({
+    ajaxStart: function () {
+        ajaxRequestCount++;
         $('#loadStaticBackdrop').modal('show');
-    }).ajaxStop(function() {
-        $('#loadStaticBackdrop').modal('hide');
-    });
+    },
+    ajaxStop: function () {
+        ajaxRequestCount = Math.max(ajaxRequestCount - 1, 0);
+        if (ajaxRequestCount === 0) {
+            $('#loadStaticBackdrop').modal('hide');
+        }
+    }
+});
 </script>
 <script>
     layout_change('light');

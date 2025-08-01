@@ -22,17 +22,21 @@ class Village extends Model
 
     public function getPolylineArrayAttribute()
     {
-        $text = $this->polyline_text;
+        $wkt = $this->polyline_text;
 
-        $wkt = str_replace(['MULTIPOINT((', '))'], '', $text);
-        $points = explode('),(', $wkt);
+        if (str_contains($wkt, '((')) {
+            // Format MySQL
+            $wkt = str_replace(['MULTIPOINT((', '))'], '', $wkt);
+            $points = explode('),(', $wkt);
+        } else {
+            // Format MariaDB
+            $wkt = str_replace(['MULTIPOINT(', ')'], '', $wkt);
+            $points = explode(',', $wkt);
+        }
 
         return array_map(function ($point) {
-            [$lng, $lat] = explode(' ', trim($point));
-            return [
-                (float) $lat,
-                (float) $lng,
-            ];
+            [$lng, $lat] = preg_split('/\s+/', trim($point));
+            return [(float) $lat, (float) $lng];
         }, $points);
     }
 }
