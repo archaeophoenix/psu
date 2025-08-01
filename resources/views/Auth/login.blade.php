@@ -46,7 +46,7 @@
         <div class="auth-wrapper v3">
             <div class="auth-form">
                 <div class="auth-header">
-                    <a href="#"><img src="{{ asset('public/assets/images/favicon.png') }}" alt="img"></a>
+                    <a href="/"><img src="{{ asset('public/assets/images/favicon.png') }}" alt="img"></a>
                 </div>
                 <div class="card my-5">
                     <div class="card-body">
@@ -72,6 +72,7 @@
                             </div>
                             <div class="d-grid mt-4">
                                 <button type="submit" class="btn btn-outline-primary">Login</button>
+                                <a href="/" class="btn btn-outline-danger">Batal</a>
                             </div>
                         </form>
                     </div>

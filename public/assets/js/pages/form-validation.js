@@ -38,9 +38,12 @@
   });
 
   // Tangkap event submit dan validasi manual
-  document.getElementById('validate-me').addEventListener('submit', function (e) {
-    e.preventDefault(); // cegah submit dulu
-    bouncer.validate(this); // trigger validasi manual
-  });
+  if(document.getElementById('validate-me')) {
+
+    document.getElementById('validate-me').addEventListener('submit', function (e) {
+          e.preventDefault(); // cegah submit dulu
+          bouncer.validate(this); // trigger validasi manual
+    });
+  }
 
 })();

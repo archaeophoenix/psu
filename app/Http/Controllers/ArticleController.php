@@ -16,7 +16,7 @@ class ArticleController extends Controller
                     ->orderBy('year', 'desc')
                     ->pluck('year');
 
-        return view('article.index', [
+        return view('Article.index', [
             'description' => 'Selamat datang di Artikel PSU',
             'title' => 'Artikel',
             'years' => $years
@@ -25,7 +25,7 @@ class ArticleController extends Controller
 
     public function create()
     {
-        return view('article.create', [
+        return view('Article.create', [
             'description' => 'Selamat datang di Form Artikel PSU',
             'title' => 'Form Artikel'
         ]);
@@ -35,7 +35,7 @@ class ArticleController extends Controller
     {
         $article = Articles::findOrFail($id);
 
-        return view('article.edit', [
+        return view('Article.edit', [
             'title' => 'Selamat datang di Form Edit Artikel PSU',
             'description' => 'Perbarui data artikel',
             'article' => $article

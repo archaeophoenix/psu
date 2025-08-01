@@ -6,9 +6,11 @@
                 <div class="col-12">
                     <nav class="navbar navbar-expand-lg  blur blur-rounded top-0 z-index-fixed shadow position-absolute my-3 py-2 start-0 end-0 mx-4">
                         <div class="menu-toggle">
+                            @auth
                             <a href="#" class="pc-head-link ms-0" id="sidebar-hide" style="padding: 0 35px;">
                                 <i class="ti ti-menu-2"></i>
                             </a>
+                            @endauth
                         </div>
                         <div class="container-fluid px-0">
                             <a class="navbar-brand font-weight-bolder ms-sm-3" rel="tooltip" title="Si Peta PSU" data-placement="bottom">

@@ -15,7 +15,7 @@ class MapController extends Controller
     {
         $years = Mapping::select('proposal_year')->distinct()->get();
 
-        return view('map.index', [
+        return view('Map.index', [
             'villages' => collect(village())->groupBy('kecamatan_id'),
             'title' => 'Peta',
             'description' => 'Selamat datang di Peta PSU',

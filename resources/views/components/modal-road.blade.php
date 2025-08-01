@@ -82,14 +82,14 @@
                     <div class="col-md-6">
                         <div class="card-group">
                             <div class="card" id="planning">
-                                <img src="assets/images/gambar.jpg" class="img-fluid" alt="..." style="max-height: 160px;">
+                                {{-- <img src="assets/images/gambar.jpg" class="img-fluid" alt="..." style="max-height: 160px;"> --}}
                             </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="card-group">
                             <div class="card" id="budget">
-                                <img src="assets/images/anggaran.jpg" class="img-fluid" alt="..." style="max-height: 160px;">
+                                {{-- <img src="assets/images/anggaran.jpg" class="img-fluid" alt="..." style="max-height: 160px;"> --}}
                             </div>
                         </div>
                     </div>

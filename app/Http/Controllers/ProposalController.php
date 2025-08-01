@@ -15,7 +15,7 @@ class ProposalController extends Controller
     {
         $years = Mapping::select('proposal_year')->distinct()->get();
 
-        return view('proposal.index', [
+        return view('Proposal.index', [
             'title' => 'Pengaduan',
             'description' => 'Selamat datang di Pengaduan PSU',
             'years' => collect($years)->pluck('proposal_year')->toArray(),
@@ -86,7 +86,7 @@ class ProposalController extends Controller
             'Rendah' =>'success'
         ];
 
-        return view('proposal.action', [
+        return view('Proposal.action', [
             'condition' => $condition,
             'status' => $status,
             'paving' => $paving,
@@ -116,7 +116,7 @@ class ProposalController extends Controller
             ];
         });
 
-        return view('proposal.create', [
+        return view('Proposal.create', [
             'districts' => $districts,
             'title' => 'Form Pengaduan',
             'description' => 'Selamat datang di Form Pengaduan PSU',

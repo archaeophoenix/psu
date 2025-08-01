@@ -35,7 +35,7 @@ class DashboardController extends Controller
         ];
 
 
-        return view('dashboard.index', [
+        return view('Dashboard.index', [
             'title' => 'Dashboard',
             'description' => 'Selamat datang di Dashboard PSU',
             'statusData'=> $statusData,

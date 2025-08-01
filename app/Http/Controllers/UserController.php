@@ -14,7 +14,7 @@ class UserController extends Controller
     {
         $users = User::all()->toArray();
 
-        return view('user.index', [
+        return view('User.index', [
             'description' => 'Selamat datang di Pengguna PSU',
             'title' => 'Artikel',
             'users' => $users
@@ -23,7 +23,7 @@ class UserController extends Controller
 
     public function create()
     {
-        return view('user.create', [
+        return view('User.create', [
             'description' => 'Selamat datang di Form Artikel PSU',
             'title' => 'Form Artikel'
         ]);
@@ -33,7 +33,7 @@ class UserController extends Controller
     {
         $user = User::findOrFail($id);
 
-        return view('user.edit', [
+        return view('User.edit', [
             'title' => 'Selamat datang di Form Edit Artikel PSU',
             'description' => 'Perbarui data artikel',
             'user' => $user

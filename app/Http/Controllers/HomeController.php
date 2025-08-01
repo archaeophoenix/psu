@@ -38,7 +38,7 @@ class HomeController extends Controller
             ];
         });
 
-        return view('home.index', [
+        return view('Home.index', [
             'districts' => $districts,
             'villages' => collect(village())->groupBy('kecamatan_id'),
             'description' => 'Selamat datang di Beranda PSU',
