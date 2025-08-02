@@ -17,7 +17,7 @@
                     <h5>Form Artikel</h5>
                 </div>
                 <form class="validate-me" id="validate-me" action="{{ route('article.store') }}" method="POST" enctype="multipart/form-data" data-validate>
-                    @include('article.form')
+                    @include('Article.form')
                 </form>
             </div>
         </div>

@@ -17,7 +17,7 @@
                     <h5>Form Pengguna</h5>
                 </div>
                 <form class="validate-me" id="validate-me" action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data" data-validate>
-                    @include('user.form')
+                    @include('User.form')
                 </form>
             </div>
         </div>

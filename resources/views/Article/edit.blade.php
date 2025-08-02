@@ -18,7 +18,7 @@
                 </div>
                 <form class="validate-me" id="validate-me" action="{{ route('article.update', $article->id) }}" method="POST" data-validate enctype="multipart/form-data">
                     @method('PUT')
-                    @include('article.form')
+                    @include('Article.form')
                 </form>
             </div>
         </div>
