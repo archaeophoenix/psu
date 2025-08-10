@@ -265,7 +265,6 @@ async function loadChartData(filters = {}) {
             ],
             data.bar.bulan
         );
-
     } catch (error) {
         showAlert('Gagal memuat data chart', 'danger');
         console.error("Gagal memuat data chart:", error);

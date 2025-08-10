@@ -3958,6 +3958,7 @@ textarea.form-control-lg {
 }
 .tab-content > .active {
   display: block;
+  margin-top: 2%;
 }
 
 .navbar {

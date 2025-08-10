@@ -4,7 +4,7 @@
 
     <div class="row tab-content">
 
-        <span class="anchor" id="beranda"></span>
+        {{-- <span class="anchor" id="beranda"></span> --}}
         <div class="col-md-12 col-xl-12 page-header tab-pane fade show active" role="tabpanel" id="pills-home" aria-labelledby="pills-home-tab">
             <div class="col-md-12 bg-container" style="background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%;">
                 <div class="row bg-content">
@@ -38,7 +38,7 @@
             </div>
         </div>
 
-        <span class="anchor" id="peta"></span>
+        {{-- <span class="anchor" id="peta"></span> --}}
         <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-peta" aria-labelledby="pills-peta-tab">
             <h5 class="mb-3">Peta</h5>
             <div class="card tbl-card">
@@ -122,7 +122,7 @@
             </div>
         </div>
 
-        <span class="anchor" id="pengaduan"></span>
+        {{-- <span class="anchor" id="pengaduan"></span> --}}
         <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-pengaduan" aria-labelledby="pills-pengaduan-tab">
             <h5 class="mb-3">Daftar Perencanaan Jalan</h5>
             <div class="card tbl-card">
@@ -162,7 +162,7 @@
             </div>
         </div>
 
-        <span class="anchor" id="statis"></span>
+        {{-- <span class="anchor" id="statis"></span> --}}
         <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-statis" aria-labelledby="pills-statis-tab">
             <h5 class="mb-3">Statistik Jalan/Drainase</h5>
             <div class="card">
@@ -307,7 +307,7 @@
             </div>
         </div> --}}
 
-        <span class="anchor" id="artikel"></span>
+        {{-- <span class="anchor" id="artikel"></span> --}}
         <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-artikel" aria-labelledby="pills-artikel-tab">
             <h5 class="mb-3">Artikel</h5>
             <div class="card-group">

@@ -15,7 +15,7 @@
     <meta name="author" content="CodedThemes">
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="{{ asset('public/assets/images/favicon.svg') }}" type="image/x-icon"> <!-- [Google Font] Family -->
+    <link rel="icon" href="{{ asset('public/assets/images/favicon.png') }}" type="image/x-icon"> <!-- [Google Font] Family -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@400;600&display=swap" id="main-font-link">
     <!-- [Tabler Icons] https://tablericons.com -->
     <link rel="stylesheet" href="{{ asset('public/assets/fonts/tabler-icons.min.css') }}">
