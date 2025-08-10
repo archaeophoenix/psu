@@ -1,6 +1,6 @@
-<div class="modal fade bd-example-modal-lg " data-backdrop="static" id="roadDetailModal" tabindex="-1" aria-labelledby="roadModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg " data-backdrop="static" id="roadDetailModal" tabindex="-1" aria-labelledby="roadModalLabel">
     <div class="modal-dialog modal-lg">
-        <div class="modal-content" style="left: 38%;">
+        <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="roadModalLabel">Detail Jalan</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
@@ -15,12 +15,12 @@
                                     <div class="carousel-inner" style="border-radius: 8px;" id="carouselInner"></div>
                                     <button class="carousel-control-prev" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="carousel-control-prev-icon"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </button>
                                     <button class="carousel-control-next" type="button"
                                         data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="carousel-control-next-icon"></span>
                                         <span class="visually-hidden">Next</span>
                                     </button>
                                 </div>

@@ -171,7 +171,24 @@ function loadTable(mappingYear = '') {
                     `;
                 }
             }
-        ]
+        ],
+        "dom": '<"top"f>rt<"bottom"lp>', //adjust the locations of defaults
+        "initComplete": function( settings, json ) {
+            var filterDiv = $('#mapping-table_filter');
+            var lengthDiv = $('#mapping-table_length');
+            var input = filterDiv.find('input');
+            var select = lengthDiv.find('select');
+
+            filterDiv.find('label').contents().unwrap();
+            lengthDiv.find('label').contents().unwrap();
+            input.removeClass('form-control-sm').addClass('form-control');
+            select.removeClass().addClass('form-control');
+
+            $('#mapping-table_length').appendTo('#mapping-table-length');
+            $('#mapping-table_filter').appendTo('#mapping-table-filter');
+            $('#mapping-table_paginate').appendTo('#mapping-table-paginate');
+        },
+        language: { search: '', searchPlaceholder: "Pencarian...", lengthMenu: "_MENU_" },
     });
 }
 
@@ -267,7 +284,7 @@ $(document).ready(function() {
         loadTable();
     }
 
-    if($('#map-year').length > 0){
+    if($('#map-year').length > 0 && $('#pills-peta-tab').length == 0){
         loadRoadMap();
     }
 
@@ -528,6 +545,14 @@ $(document).ready(function() {
             `);
         } else {
             alert('File harus PDF');
+        }
+    });
+
+    $('#pills-peta-tab').on('click', function() {
+        if ($('#pills-peta').hasClass('active')) {
+            if($('#map-year').length > 0){
+                loadRoadMap();
+            }
         }
     });
 });

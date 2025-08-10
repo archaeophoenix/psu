@@ -2,44 +2,44 @@
 
     <x-slot:title>{{ $title }}</x-slot>
 
-    <span class=" anchor" id="beranda"></span>
-    <div class="page-header">
-        <div class="col-md-12 bg-container" style="background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%;">
-            <div class="row bg-content">
-                <div class="col-md-12 col-xl-6 d-none d-sm-none d-md-block">
-                    <div class="card">
-                        <div class="card-body">
-                            Si Peta PSU adalah Sistem Informasi Perencanaan dan Pengelolaan Infrastruktur Jalan dan Drainase yang bertujuan untuk meningkatkan efisiensi dan transparansi dalam perencanaan infrastruktur di wilayah perkotaan.
+    <div class="row tab-content">
+
+        <span class="anchor" id="beranda"></span>
+        <div class="col-md-12 col-xl-12 page-header tab-pane fade show active" role="tabpanel" id="pills-home" aria-labelledby="pills-home-tab">
+            <div class="col-md-12 bg-container" style="background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%;">
+                <div class="row bg-content">
+                    <div class="col-md-12 col-xl-6 d-none d-sm-none d-md-block">
+                        <div class="card">
+                            <div class="card-body">
+                                Si Peta PSU adalah Sistem Informasi Perencanaan dan Pengelolaan Infrastruktur Jalan dan Drainase yang bertujuan untuk meningkatkan efisiensi dan transparansi dalam perencanaan infrastruktur di wilayah perkotaan.
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                @foreach ($counts as $count)
-                <div class="col-md-6 col-xl-3 d-none d-sm-none d-md-block">
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row align-items-center">
-                                <div class="col-8">
-                                    <h3 class="mb-1">{{ $count['total'] }}</h3>
-                                    <p class="text-muted mb-0 text-capitalize">{{ $count['type'] }}</p>
-                                </div>
-                                <div class="col-4 text-end">
-                                    <i class="fas {{ $count['type'] == 'Jalan' ? 'fa-road text-secondary' : 'fa-water text-primary' }} f-36"></i>
+                    @foreach ($counts as $count)
+                    <div class="col-md-6 col-xl-3 d-none d-sm-none d-md-block">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-8">
+                                        <h3 class="mb-1">{{ $count['total'] }}</h3>
+                                        <p class="text-muted mb-0 text-capitalize">{{ $count['type'] }}</p>
+                                    </div>
+                                    <div class="col-4 text-end">
+                                        <i class="fas {{ $count['type'] == 'Jalan' ? 'fa-road text-secondary' : 'fa-water text-primary' }} f-36"></i>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
+                    @endforeach
 
+                </div>
             </div>
         </div>
-    </div>
-
-    <div class="row">
 
         <span class="anchor" id="peta"></span>
-        <div class="col-md-12 col-xl-12">
+        <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-peta" aria-labelledby="pills-peta-tab">
             <h5 class="mb-3">Peta</h5>
             <div class="card tbl-card">
                 <div class="card-body">
@@ -122,8 +122,8 @@
             </div>
         </div>
 
-        <span class="anchor" id="statis"></span>
-        <div class="col-md-12 col-xl-12">
+        <span class="anchor" id="pengaduan"></span>
+        <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-pengaduan" aria-labelledby="pills-pengaduan-tab">
             <h5 class="mb-3">Daftar Perencanaan Jalan</h5>
             <div class="card tbl-card">
                 <div class="card-body">
@@ -138,16 +138,32 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" id="mapping-table-length"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" id="mapping-table-filter"></div>
+                        </div>
                     </div>
 
-                    <div class="dt-responsive table-responsive">
-                        <table id="mapping-table" class="table table-striped table-bordered nowrap"></table>
+                    <div class="row">
+                        <div class="dt-responsive table-responsive">
+                            <table id="mapping-table" class="table table-striped table-bordered nowrap"></table>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-sm-8">&nbsp;</div>
+                        <div class="col-sm-4">
+                            <div class="form-group" id="mapping-table-paginate"></div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="col-md-12 col-xl-12">
+        <span class="anchor" id="statis"></span>
+        <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-statis" aria-labelledby="pills-statis-tab">
             <h5 class="mb-3">Statistik Jalan/Drainase</h5>
             <div class="card">
                 <div class="card-body">
@@ -291,48 +307,51 @@
             </div>
         </div> --}}
 
-        <span class="anchor" id="info"></span>
-        <div class="card-group">
-            <div class="card">
-                <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                    <div class="carousel-inner">
+        <span class="anchor" id="artikel"></span>
+        <div class="col-md-12 col-xl-12 tab-pane fade" role="tabpanel" id="pills-artikel" aria-labelledby="pills-artikel-tab">
+            <h5 class="mb-3">Artikel</h5>
+            <div class="card-group">
+                <div class="card">
+                    <div id="carouselExampleControls" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
 
-                    @foreach ($articles as $idx => $articleGroup)
-                        <div class="carousel-item {{ $idx == 0 ? 'active' : '' }}">
-                            <div class="row">
+                        @foreach ($articles as $idx => $articleGroup)
+                            <div class="carousel-item {{ $idx == 0 ? 'active' : '' }}">
+                                <div class="row">
 
-                                @foreach ($articleGroup as $article)
-                                    <div class="col-lg-4">
-                                        <div class="card">
-                                            <img class="img-fluid card-img-top" id="img-{{ $article['slug'] }}" src="{{ asset('public/'.$article['img']) }}" alt="{{ $article['title'] }}">
-                                            <div class="card-body">
-                                                <h5 class="card-title" id="title-{{ $article['slug'] }}"">{{ $article['title'] }}</h5>
-                                                <p class="card-text">{{ Str::limit($article['content'], 50) }}</p>
-                                                <input type="hidden" id="content-{{ $article['slug'] }}" value="{{ $article['content'] }}">
-                                            </div>
-                                            <div class="card-footer">
-                                                <small class="text-muted">
-                                                    <a style="cursor: pointer" class="article" id="{{ $article['slug'] }}">Selanjutnya</a>
-                                                </small>
+                                    @foreach ($articleGroup as $article)
+                                        <div class="col-lg-4">
+                                            <div class="card">
+                                                <img class="img-fluid card-img-top" id="img-{{ $article['slug'] }}" src="{{ asset('public/'.$article['img']) }}" alt="{{ $article['title'] }}">
+                                                <div class="card-body">
+                                                    <h5 class="card-title" id="title-{{ $article['slug'] }}"">{{ $article['title'] }}</h5>
+                                                    <p class="card-text">{{ Str::limit($article['content'], 50) }}</p>
+                                                    <input type="hidden" id="content-{{ $article['slug'] }}" value="{{ $article['content'] }}">
+                                                </div>
+                                                <div class="card-footer">
+                                                    <small class="text-muted">
+                                                        <a style="cursor: pointer" class="article" id="{{ $article['slug'] }}">Selanjutnya</a>
+                                                    </small>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
 
-                                @endforeach
+                                    @endforeach
 
+                                </div>
                             </div>
-                        </div>
-                    @endforeach
+                        @endforeach
 
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </button>
                     </div>
-                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </button>
-                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </button>
                 </div>
             </div>
         </div>

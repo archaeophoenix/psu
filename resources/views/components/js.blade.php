@@ -22,6 +22,7 @@
 integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
 crossorigin=""></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet-providers/1.13.0/leaflet-providers.min.js"></script>
+<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 <script src="{{ asset('public/assets/js/plugins/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('public/assets/js/plugins/dataTables.bootstrap5.min.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -36,7 +37,7 @@ crossorigin=""></script>
 <script src="{{ asset('public/assets/js/map.js') }}"></script>
 <script src="{{ asset('public/assets/js/main.js') }}"></script>
 <script>
-let ajaxRequestCount = 0;
+/*let ajaxRequestCount = 0;
 
 $(document).on({
     ajaxStart: function () {
@@ -49,7 +50,7 @@ $(document).on({
             $('#loadStaticBackdrop').modal('hide');
         }
     }
-});
+});*/
 </script>
 <script>
     layout_change('light');

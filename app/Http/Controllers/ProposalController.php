@@ -150,7 +150,7 @@ class ProposalController extends Controller
         }
 
         $wktPoints = array_map(function ($point) {
-            return "({$point[1]} {$point[0]})";
+            return "{$point[1]} {$point[0]}"; // lng lat tanpa ()
         }, $polyline);
 
         $wkt = 'MULTIPOINT(' . implode(',', $wktPoints) . ')';

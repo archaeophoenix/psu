@@ -61,7 +61,7 @@
 .anchor {
     display: block;
     height: 92px;
-    margin-top: -92px;
+    margin-top: -80px;
     visibility: hidden;
 }
 
@@ -70,6 +70,7 @@
     padding: 5px;
     backdrop-filter: blur(1px);
     box-shadow: 0 8px 32px rgba(31, 38, 135, 0.2);
+    margin-bottom: 40px !important;
 }
 
 .info {
@@ -97,4 +98,8 @@ thead th {
 
 .choices__list--dropdown {
     z-index: 9999 !important;
+}
+
+.leaflet-routing-container {
+    display: none;
 }

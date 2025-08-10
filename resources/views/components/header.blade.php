@@ -23,21 +23,21 @@
                                 </span>
                             </button>
                             <div class="collapse navbar-collapse w-100 pt-3 pb-2 py-lg-0" id="navigation" style="background: white;">
-                                <ul class="navbar-nav navbar-nav-hover mx-auto" style="font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 1px; padding: 15px 20px;">
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#beranda"> Beranda </a>
+                                <ul class="navbar-nav navbar-nav-hover mx-auto" style="font-family: 'Bebas Neue', sans-serif; text-transform: uppercase; letter-spacing: 1px; padding: 15px 20px;" role="tablist">
+                                    <li class="nav-item dropdown dropdown-hover mx-2" role="presentation">
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center active show" role="tab" href="#pills-home" aria-controls="pills-home" id="pills-home-tab" data-bs-toggle="pill" aria-selected="false" tabindex="-1"> Beranda </a>
                                     </li>
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#peta"> Peta </a>
+                                    <li class="nav-item dropdown dropdown-hover mx-2" role="presentation">
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="tab" href="#pills-peta" aria-controls="pills-peta" id="pills-peta-tab" data-bs-toggle="pill" aria-selected="false" tabindex="-1"> Peta </a>
                                     </li>
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#statis"> Statistik </a>
+                                    <li class="nav-item dropdown dropdown-hover mx-2" role="presentation">
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="tab" href="#pills-pengaduan" aria-controls="pills-pengaduan" id="pills-pengaduan-tab" data-bs-toggle="pill" aria-selected="false" tabindex="-1"> Perencanaan </a>
                                     </li>
-                                    {{-- <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#laporan"> Pengaduan </a>
-                                    </li> --}}
-                                    <li class="nav-item dropdown dropdown-hover mx-2">
-                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" href="#info"> Artikel </a>
+                                    <li class="nav-item dropdown dropdown-hover mx-2" role="presentation">
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="tab" href="#pills-statis" aria-controls="pills-statis" id="pills-statis-tab" data-bs-toggle="pill" aria-selected="false" tabindex="-1"> Statistik </a>
+                                    </li>
+                                    <li class="nav-item dropdown dropdown-hover mx-2" role="presentation">
+                                        <a role="button" class="nav-link ps-2 d-flex justify-content-between cursor-pointer align-items-center" role="tab" href="#pills-artikel" aria-controls="pills-artikel" id="pills-artikel-tab" data-bs-toggle="pill" aria-selected="false" tabindex="-1"> Artikel </a>
                                     </li>
                                 </ul>
                                 <ul class="list-unstyled">

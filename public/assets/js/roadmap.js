@@ -5,6 +5,8 @@ class RoadMap {
         this.map = null;
         this.legend = null;
         this.isInitialized = false;
+        this.baseLayers = null;
+        this.layers = null;
     }
 
     init() {
@@ -28,6 +30,12 @@ class RoadMap {
         this.map = L.map(this.mapId).setView([0.6461, 117.2578], 12);
     }
 
+    invalidate() {
+        if (this.map) {
+            this.map.invalidateSize();
+        }
+    }
+
     addBaseTile() {
         // Opsi tile bawaan (OpenStreetMap)
         const osm = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -47,7 +55,10 @@ class RoadMap {
         };
 
         // Tambahkan layer control (opsional)
-        L.control.layers(this.baseLayers).addTo(this.map);
+        if(this.layers){
+            this.map.removeControl(this.layers);
+        }
+        this.layers = L.control.layers(this.baseLayers).addTo(this.map);
     }
 
     getColorByCondition(condition) {
