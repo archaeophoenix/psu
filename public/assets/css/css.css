@@ -1,21 +1,14 @@
 .bg-container {
     width: 100%;
     height: 0;
-    /* Awalnya 0, akan disesuaikan dengan padding-bottom */
-    padding-bottom: 50.25%;
-    /* Rasio aspek 16:9 (tinggi/lebar * 100%). Sesuaikan jika gambar Anda memiliki rasio yang berbeda */
-    background-image: url('../../assets/images/bg.png');
-    /* Ganti dengan URL gambar Anda */
+    padding-bottom: 56%;
+    background-image: url('../../assets/images/bg.svg');
     background-size: cover;
-    /* Memastikan gambar menutupi seluruh area */
     background-position: center;
-    /* Memusatkan gambar */
     background-repeat: no-repeat;
-    /* Mencegah pengulangan gambar */
     position: relative;
-    /* Penting untuk posisi konten di dalamnya */
     overflow: hidden;
-    /* Memastikan gambar tidak meluap */
+    border-radius: 10px;
 }
 
 .bg-content {
@@ -102,4 +95,12 @@ thead th {
 
 .leaflet-routing-container {
     display: none;
+}
+
+.pc-footer{
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background: #aee2f0;
+    margin-top: 100px !important;
+    padding-top: 25px;
 }

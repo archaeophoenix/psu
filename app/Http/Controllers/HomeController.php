@@ -25,22 +25,22 @@ class HomeController extends Controller
         $articles = collect($articles);
         $articles = $articles->chunk(3);
         $articles->toArray();
-        $districts = District::with('villages')->get()->map(function ($mapping) {
+        $villages = District::with('villages')->get()->map(function ($mapping) {
             return [
                 'id' => $mapping->id,
                 'name' => $mapping->name,
                 'villages' => $mapping->villages->map(function ($village) {
                     return [
                         'id' => $village->id,
-                        'name' => $village->name
+                        'name' => $village->name,
+                        'polyline' => implode(',', $village->polyline_array[0])
                     ];
                 })->toArray()
             ];
         });
 
         return view('Home.index', [
-            'districts' => $districts,
-            'villages' => collect(village())->groupBy('kecamatan_id'),
+            'villages' => $villages,
             'description' => 'Selamat datang di Beranda PSU',
             'articles' => $articles,
             'title' => 'Beranda',

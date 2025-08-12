@@ -108,63 +108,30 @@ class RoadMap {
 
         polyline.on('click', () => {
 
-            let badgeClass = 'secondary';
-            let badgeStatus = 'secondary';
-            let badgePaving = 'secondary';
-            let badgePopulation = 'secondary';
-
-            switch (road.condition) {
-                case 'Baik':
-                    badgeClass = 'success';
-                break;
-                case 'Rusak Ringan':
-                    badgeClass = 'warning';
-                break;
-                case 'Rusak Sedang':
-                    badgeClass = 'danger';
-                break;
-                case 'Rusak Berat':
-                    badgeClass = 'red-900';
-                break;
+            const badgeClass = {
+                'Baik': 'success',
+                'Rusak Ringan': 'warning',
+                'Rusak Sedang': 'danger',
+                'Rusak Berat': 'red-900'
             }
 
-            switch (road.status) {
-                case 'Usulan':
-                    badgeStatus = 'red-900';
-                    break;
-                case 'Valid':
-                    badgeStatus = 'warning';
-                    break;
-                case 'Perencanaan':
-                    badgeStatus = 'danger';
-                    break;
-                case 'Eksisting':
-                    badgeStatus = 'success';
-                    break;
+            const badgePaving = {
+                'Aspal': 'success',
+                'Beton': 'warning',
+                'Tanah': 'danger'
             }
 
-            switch (road.paving) {
-                case 'Aspal':
-                    badgePaving = 'success';
-                    break;
-                case 'Beton':
-                    badgePaving = 'warning';
-                    break;
-                case 'Tanah':
-                    badgePaving = 'danger';
-                    break;
+            const badgeStatus = {
+                'Usulan': 'danger',
+                'Valid': 'warning',
+                'Perencanaan': 'red-900',
+                'Eksisting': 'success'
             }
 
-            switch (road.population) {
-                case 'Tinggi':
-                    badgePopulation = 'danger';
-                    break;
-                case 'Sedang':
-                    badgePopulation = 'warning';
-                    break;
-                case 'Rendah':
-                    badgePopulation = 'success';
-                    break;
+            const badgePopulation = {
+                'Tinggi': 'danger',
+                'Sedang': 'warning',
+                'Rendah': 'success'
             }
 
             $('#budget').html(``);
@@ -217,14 +184,14 @@ class RoadMap {
             $('#detailMapLeft').html(`
                 <p class="fs-4"><strong>Jalan:</strong> ${road.name} </p>
                 <p class="fs-4"><strong>Usulan:</strong> ${road.proposal_source} </p>
-                <p class="fs-4"><strong>Kondisi:</strong> <span class="badge bg-${badgeClass} text-capitalize">${road.condition} </span></p>
-                <p class="fs-4"><strong>Perkerasan:</strong> <span class="badge bg-${badgePaving} text-capitalize">${road.paving}</span></p>
-                <p class="fs-4"><strong>Status:</strong> <span class="badge bg-${badgeStatus} text-capitalize">${road.status}</span></p>
+                <p class="fs-4"><strong>Kondisi:</strong> <span class="badge bg-${badgeClass[road.condition] ?? 'secondary'} text-capitalize">${road.condition} </span></p>
+                <p class="fs-4"><strong>Perkerasan:</strong> <span class="badge bg-${badgePaving[road.paving] ?? 'secondary'} text-capitalize">${road.paving}</span></p>
+                <p class="fs-4"><strong>Status:</strong> <span class="badge bg-${badgeStatus[road.status] ?? 'secondary'} text-capitalize">${road.status}</span></p>
             `);
             $('#detailMapRight').html(`
                 <p class="fs-4"><strong>Kecamatan:</strong> ${road.district}</p>
                 <p class="fs-4"><strong>Lokasi:</strong> ${road.location}</p>
-                <p class="fs-4"><strong>Kepadatan:</strong> <span class="badge bg-${badgePopulation} text-capitalize">${road.population}</span></p>
+                <p class="fs-4"><strong>Kepadatan:</strong> <span class="badge bg-${badgePopulation[road.population] ?? 'secondary'} text-capitalize">${road.population}</span></p>
                 <p class="fs-4"><strong>Panjang:</strong> ${road.length} m</p>
                 <p class="fs-4"><strong>Lebar:</strong> ${road.width} m</p>
             `);
@@ -282,7 +249,7 @@ class RoadMap {
 
             this.roadData.forEach(road => {
                 try {
-                    const roadLocation = (road.location ?? '').trim().toLowerCase();
+                    const roadLocation = (road.village_id ?? '').trim().toLowerCase();
                     const roadCondition = (road.condition ?? '').trim().toLowerCase();
                     const roadType = (road.type ?? '').trim().toLowerCase();
                     const roadPaving = (road.paving ?? '').trim().toLowerCase();
@@ -301,6 +268,14 @@ class RoadMap {
                     console.warn("Gagal memfilter road:", road, err);
                 }
             });
+
+            const slot = $('#location option:selected').attr('slot');
+            const polyline = slot ? slot.split(',') : '';
+            if(polyline.length){
+                const lat = parseFloat(polyline[0]);
+                const lng = parseFloat(polyline[1]);
+                this.map.setView([lat, lng], 12);
+            }
         });
     }
 }

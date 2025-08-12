@@ -12,7 +12,15 @@ function showAlert(message, type = 'success') {
     setTimeout(function() {
         $('#modal-alert').modal('hide');
     }, 2500);
+}
 
+function customSort(order, badge) {
+    return function (data, type) {
+        if (type === 'sort') {
+            return order[data] ?? 999;
+        }
+        return `<span class="badge bg-${badge[data] ?? 'secondary'} text-capitalize">${data}</span>`;
+    };
 }
 
 function loadVillageTable() {
@@ -65,30 +73,23 @@ function loadTable(mappingYear = '') {
             data: { tahun: mappingYear } // kirim filter sebagai parameter GET
         },
         columns: [
-            { data: 'name', title: 'Name' },
+            { data: 'name', title: 'Nama' },
             { data: 'location', title: 'Lokasi' },
             { data: 'length', title: 'Panjang' },
             { data: 'width', title: 'Lebar' },
             { data: 'condition', title: 'Kondisi',
-                render: function (data, type, row) {
-                    let badgeClass = 'secondary';
-
-                    switch (data) {
-                        case 'Baik':
-                            badgeClass = 'success';
-                            break;
-                        case 'Rusak Ringan':
-                            badgeClass = 'warning';
-                            break;
-                        case 'Rusak Sedang':
-                            badgeClass = 'danger';
-                            break;
-                        case 'Rusak Berat':
-                            badgeClass = 'red-900';
-                            break;
+                render: customSort({
+                        'Baik': 0,
+                        'Rusak Ringan': 1,
+                        'Rusak Sedang': 2,
+                        'Rusak Berat': 3
+                    }, {
+                        'Baik': 'success',
+                        'Rusak Ringan': 'warning',
+                        'Rusak Sedang': 'danger',
+                        'Rusak Berat': 'red-900'
                     }
-                    return `<span class="badge bg-${badgeClass} text-capitalize">${data}</span>`;
-                }
+                )
             },
             { data: 'proposal_source', title: 'Sumber Usulan' },
             { data: 'proposal_year', title: 'Tahun Usulan' },
@@ -97,64 +98,46 @@ function loadTable(mappingYear = '') {
             { data: 'type', title: 'Jenis' },
             { data: 'paving', title: 'Perkerasan',
 
-                render: function (data, type, row) {
-
-                    let badgeClass = 'secondary';
-
-                    switch (data) {
-                        case 'Aspal':
-                            badgeClass = 'success';
-                            break;
-                        case 'Beton':
-                            badgeClass = 'warning';
-                            break;
-                        case 'Tanah':
-                            badgeClass = 'danger';
-                            break;
+                render: customSort({
+                        'Tanah': 0,
+                        'Beton': 1,
+                        'Aspal': 2
+                    },
+                    {
+                        'Tanah': 'danger',
+                        'Beton': 'warning',
+                        'Aspal': 'success'
                     }
-                    return `<span class="badge bg-${badgeClass} text-capitalize">${data}</span>`;
-                }
+                )
             },
             { data: 'population', title: 'Kepadatan Penduduk',
 
-                render: function (data, type, row) {
-                    let badgeClass = 'secondary';
-
-                    switch (data) {
-                        case 'Tinggi':
-                            badgeClass = 'danger';
-                            break;
-                        case 'Sedang':
-                            badgeClass = 'warning';
-                            break;
-                        case 'Rendah':
-                            badgeClass = 'success';
-                            break;
+                render: customSort({
+                        'Tinggi': 0,
+                        'Sedang': 1,
+                        'Rendah': 2
+                    },
+                    {
+                        'Tinggi': 'danger',
+                        'Sedang': 'warning',
+                        'Rendah': 'success'
                     }
-                    return `<span class="badge bg-${badgeClass} text-capitalize">${data}</span>`;
-                }
+                )
             },
             { data: 'status', title: 'Status',
-                render: function (data, type, row) {
-
-                    let badgeClass = 'secondary';
-
-                    switch (data) {
-                        case 'Usulan':
-                            badgeClass = 'red-900';
-                            break;
-                        case 'Valid':
-                            badgeClass = 'warning';
-                            break;
-                        case 'Perencanaan':
-                            badgeClass = 'danger';
-                            break;
-                        case 'Eksisting':
-                            badgeClass = 'success';
-                            break;
+                render: customSort({
+                        'Eksisting': 0,
+                        'Valid': 1,
+                        'Usulan': 2,
+                        'Perencanaan': 3
+                    },
+                    {
+                        'Eksisting': 'success',
+                        'Valid': 'warning',
+                        'Usulan': 'danger',
+                        'Perencanaan' : 'red-900',
                     }
-                    return `<span class="badge bg-${badgeClass} text-capitalize">${data}</span>`;
-                }
+                )
             },
             { data: 'null', title: '<i class="ti ti-settings-bolt"></i>',
                 orderable: false,
@@ -173,6 +156,36 @@ function loadTable(mappingYear = '') {
             }
         ],
         "dom": '<"top"f>rt<"bottom"lp>', //adjust the locations of defaults
+        buttons: [
+            {
+                extend: 'excelHtml5',
+                text: '<i class="ti ti-file-spreadsheet"></i> Excel',
+                className: 'btn btn-outline-info btn-sm',
+                title: 'Data Mapping',
+                exportOptions: {
+                    columns: ':visible:not(:last-child)',
+                    modifier: {
+                        search: 'applied',
+                        order: 'applied'
+                    }
+                }
+            },
+            {
+                extend: 'pdfHtml5',
+                text: '<i class="ti ti-file-text"></i> PDF',
+                className: 'btn btn-outline-primary btn-sm',
+                title: 'Data Mapping',
+                orientation: 'landscape',
+                pageSize: 'A4',
+                exportOptions: {
+                    columns: ':visible:not(:last-child)',
+                    modifier: {
+                        search: 'applied',
+                        order: 'applied'
+                    }
+                }
+            }
+        ],
         "initComplete": function( settings, json ) {
             var filterDiv = $('#mapping-table_filter');
             var lengthDiv = $('#mapping-table_length');
@@ -187,9 +200,30 @@ function loadTable(mappingYear = '') {
             $('#mapping-table_length').appendTo('#mapping-table-length');
             $('#mapping-table_filter').appendTo('#mapping-table-filter');
             $('#mapping-table_paginate').appendTo('#mapping-table-paginate');
+
+            $('#mapping-table tfoot th').each(function () {
+                var title = $(this).text();
+                if(title){
+                    $(this).html('<input type="search" placeholder="Pencarian '+title+'" class="form-control form-control-sm" />');
+                }
+            });
+
+            table.buttons().container().appendTo('#mapping-table-export');
+
+            // Apply search per kolom
+            this.api().columns().every(function () {
+                var that = this;
+                $('input', this.footer()).on('keyup change clear input', function () {
+                    if (that.search() !== this.value) {
+                        that.search(this.value).draw();
+                    }
+                });
+            });
         },
         language: { search: '', searchPlaceholder: "Pencarian...", lengthMenu: "_MENU_" },
     });
+
+
 }
 
 function loadArticle(articleYear = '') {
@@ -235,9 +269,15 @@ async function loadRoadMap(filters = {}) {
 
             if (roadMapInstance && roadMapInstance.isInitialized) {
                 roadMapInstance.updateData(roads);
+
+                roadMapInstance.setupFilter();
+                document.getElementById("map-filter").dispatchEvent(new Event("submit"));
             } else {
                 roadMapInstance = new RoadMap("mapid", roads);
                 roadMapInstance.init();
+
+                roadMapInstance.setupFilter();
+                document.getElementById("map-filter").dispatchEvent(new Event("submit"));
             }
         } else {
             showAlert('Data jalan tidak ditemukan', 'danger');
@@ -310,9 +350,20 @@ $(document).ready(function() {
     });
 
     $('#chart-year').on('change', function () {
-        const chartYear = $(this).val();
+        const year = $('#chart-year').val();
+        const district = $('#chart-district').val();
         loadChartData({
-            tahun : year
+            tahun : year,
+            kecamatan : district
+        });
+    });
+
+    $('#chart-district').on('change', function () {
+        const year = $('#chart-year').val();
+        const district = $('#chart-district').val();
+        loadChartData({
+            tahun : year,
+            kecamatan : district
         });
     });
 
@@ -353,63 +404,30 @@ $(document).ready(function() {
         const data = $('#mapping-table').DataTable().rows().data().toArray();
         const road = data.find(item => item.id == id);
 
-        let badgeClass = 'secondary';
-        let badgeStatus = 'secondary';
-        let badgePaving = 'secondary';
-        let badgePopulation = 'secondary';
-
-        switch (road.condition) {
-            case 'Baik':
-                badgeClass = 'success';
-            break;
-            case 'Rusak Ringan':
-                badgeClass = 'warning';
-            break;
-            case 'Rusak Sedang':
-                badgeClass = 'danger';
-            break;
-            case 'Rusak Berat':
-                badgeClass = 'red-900';
-            break;
+        const badgeClass = {
+            'Baik': 'success',
+            'Rusak Ringan': 'warning',
+            'Rusak Sedang': 'danger',
+            'Rusak Berat': 'red-900'
         }
 
-        switch (road.status) {
-            case 'Usulan':
-                badgeStatus = 'red-900';
-                break;
-            case 'Valid':
-                badgeStatus = 'warning';
-                break;
-            case 'Perencanaan':
-                badgeStatus = 'danger';
-                break;
-            case 'Eksisting':
-                badgeStatus = 'success';
-                break;
+        const badgePaving = {
+            'Aspal': 'success',
+            'Beton': 'warning',
+            'Tanah': 'danger'
         }
 
-        switch (road.paving) {
-            case 'Aspal':
-                badgePaving = 'success';
-                break;
-            case 'Beton':
-                badgePaving = 'warning';
-                break;
-            case 'Tanah':
-                badgePaving = 'danger';
-                break;
+        const badgeStatus = {
+            'Usulan': 'danger',
+            'Valid': 'warning',
+            'Perencanaan': 'red-900',
+            'Eksisting': 'success'
         }
 
-        switch (road.population) {
-            case 'Tinggi':
-                badgePopulation = 'danger';
-                break;
-            case 'Sedang':
-                badgePopulation = 'warning';
-                break;
-            case 'Rendah':
-                badgePopulation = 'success';
-                break;
+        const badgePopulation = {
+            'Tinggi': 'danger',
+            'Sedang': 'warning',
+            'Rendah': 'success'
         }
 
         $('#budget').html(``);
@@ -462,15 +480,15 @@ $(document).ready(function() {
         $('#detailMapLeft').html(`
             <p class="fs-4"><strong>Jalan:</strong> ${road.name} </p>
             <p class="fs-4"><strong>Usulan:</strong> ${road.proposal_source} </p>
-            <p class="fs-4"><strong>Kondisi:</strong> <span class="badge bg-${badgeClass} text-capitalize">${road.condition} </span></p>
-            <p class="fs-4"><strong>Perkerasan:</strong> <span class="badge bg-${badgePaving} text-capitalize">${road.paving}</span></p>
-            <p class="fs-4"><strong>Status:</strong> <span class="badge bg-${badgeStatus} text-capitalize">${road.status}</span></p>
+            <p class="fs-4"><strong>Kondisi:</strong> <span class="badge bg-${badgeClass[road.condition] ?? 'secondary'} text-capitalize">${road.condition} </span></p>
+            <p class="fs-4"><strong>Perkerasan:</strong> <span class="badge bg-${badgePaving[road.paving] ?? 'secondary'} text-capitalize">${road.paving}</span></p>
+            <p class="fs-4"><strong>Status:</strong> <span class="badge bg-${badgeStatus[road.status] ?? 'secondary'} text-capitalize">${road.status}</span></p>
         `);
 
         $('#detailMapRight').html(`
             <p class="fs-4"><strong>Kecamatan:</strong> ${road.district}</p>
             <p class="fs-4"><strong>Lokasi:</strong> ${road.location}</p>
-            <p class="fs-4"><strong>Kepadatan:</strong> <span class="badge bg-${badgePopulation} text-capitalize">${road.population}</span></p>
+            <p class="fs-4"><strong>Kepadatan:</strong> <span class="badge bg-${badgePopulation[road.population] ?? 'secondary'} text-capitalize">${road.population}</span></p>
             <p class="fs-4"><strong>Panjang:</strong> ${road.length} m</p>
             <p class="fs-4"><strong>Lebar:</strong> ${road.width} m</p>
         `);

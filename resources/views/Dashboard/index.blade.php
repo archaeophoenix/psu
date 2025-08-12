@@ -43,6 +43,16 @@
                                     </select>
                                 </div>
                             </div>
+                            <div class="col-sm-4">
+                                <select name="chart-district" id="chart-district" class="select2 form-control">
+                                    <option value="" selected>Pilih semua Kecamatan</option>
+                                    @foreach ($villages as $kecamatan)
+                                        <option value="{{ $kecamatan['id'] }}">
+                                            {{ $kecamatan['name'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
                         </div>
                     </div>
 

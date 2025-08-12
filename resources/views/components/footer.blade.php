@@ -1,4 +1,4 @@
-<footer class="pc-footer text-dark" style="background: #aee2f0; margin-top: 100px;padding-top: 25px;">
+<footer class="pc-footer text-dark">
     <div class="footer-wrapper container-fluid">
         <div class="container">
             <div class="row">

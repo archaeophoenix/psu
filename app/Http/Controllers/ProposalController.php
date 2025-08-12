@@ -68,9 +68,9 @@ class ProposalController extends Controller
         ];
 
         $status = [
-            'Usulan' => 'red-900',
+            'Usulan' => 'danger',
             'Valid' => 'warning',
-            'Perencanaan' => 'danger',
+            'Perencanaan' => 'red-900',
             'Eksisting' => 'success'
         ];
 

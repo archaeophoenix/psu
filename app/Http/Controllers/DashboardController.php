@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Mapping;
 use App\Http\Controllers\Controller;
+use App\Models\District;
 use Illuminate\Support\Facades\DB;
 
 
@@ -22,9 +23,9 @@ class DashboardController extends Controller
         }
 
         $statusColor = [
-            'Usulan' => 'red-900',
+            'Usulan' => 'danger',
             'Valid' => 'warning',
-            'Perencanaan' => 'danger',
+            'Perencanaan' => 'red-900',
             'Eksisting' => 'success',
         ];
         $statusIcon= [
@@ -34,9 +35,17 @@ class DashboardController extends Controller
             'Eksisting' =>'map-check',
         ];
 
+        $villages = District::get()->map(function ($mapping) {
+            return [
+                'id' => $mapping->id,
+                'name' => $mapping->name,
+            ];
+        });
+
 
         return view('Dashboard.index', [
             'title' => 'Dashboard',
+            'villages' => $villages,
             'description' => 'Selamat datang di Dashboard PSU',
             'statusData'=> $statusData,
             'years' => collect($years)->pluck('proposal_year')->toArray(),

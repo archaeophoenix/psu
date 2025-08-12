@@ -20,7 +20,7 @@ class ChartController extends Controller
         }
 
         if ($kec) {
-            $query->where('location', $kec);
+            $query->where('district_id', $kec);
         }
 
         if ($paving) {

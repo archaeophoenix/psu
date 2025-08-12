@@ -17,7 +17,7 @@ class BarChart {
             },
             plotOptions: {
                 bar: {
-                    columnWidth: '30%',
+                    columnWidth: '60%',
                     borderRadius: 4
                 }
             },
@@ -65,7 +65,10 @@ class BarChart {
     update(series = [], categories = []) {
         this.chart.updateOptions({
             series,
-            xaxis: { categories }
+            xaxis: { categories },
+            plotOptions: {
+                bar: { columnWidth: '45%' }
+            }
         });
     }
 }

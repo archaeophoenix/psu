@@ -33,10 +33,10 @@
                                     <select name="location" id="location" class="select2 form-control">
                                         <option value="" selected>Pilih semua Kelurahan / Desa</option>
                                         @foreach ($villages as $kecamatan => $kelurahanGroup)
-                                            <optgroup label="{{ $kelurahanGroup->first()['kecamatan'] }}">
-                                                @foreach ($kelurahanGroup as $kelurahan)
-                                                    <option slot="{{ $kelurahan['kelurahan_lat'] }} - {{ $kelurahan['kelurahan_long'] }}" value="{{ $kelurahan['kelurahan'] }}">
-                                                        {{ $kelurahan['kelurahan'] }}
+                                            <optgroup label="{{ $kelurahanGroup['name'] }}">
+                                                @foreach ($kelurahanGroup['villages'] as $kelurahan)
+                                                    <option slot="{{ $kelurahan['polyline'] }}" value="{{ $kelurahan['id'] }}">
+                                                        {{ $kelurahan['name'] }}
                                                     </option>
                                                 @endforeach
                                             </optgroup>

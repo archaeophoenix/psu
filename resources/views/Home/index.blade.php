@@ -6,7 +6,8 @@
 
         {{-- <span class="anchor" id="beranda"></span> --}}
         <div class="col-md-12 col-xl-12 page-header tab-pane fade show active" role="tabpanel" id="pills-home" aria-labelledby="pills-home-tab">
-            <div class="col-md-12 bg-container" style="background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%;">
+            <div class="col-md-12 bg-container" style="">
+                {{-- background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%; --}}
                 <div class="row bg-content">
                     <div class="col-md-12 col-xl-6 d-none d-sm-none d-md-block">
                         <div class="card">
@@ -61,10 +62,10 @@
                                     <select name="location" id="location" class="select2 form-control">
                                         <option value="" selected>Pilih semua Kelurahan / Desa</option>
                                         @foreach ($villages as $kecamatan => $kelurahanGroup)
-                                            <optgroup label="{{ $kelurahanGroup->first()['kecamatan'] }}">
-                                                @foreach ($kelurahanGroup as $kelurahan)
-                                                    <option slot="{{ $kelurahan['kelurahan_lat'] }} - {{ $kelurahan['kelurahan_long'] }}" value="{{ $kelurahan['kelurahan'] }}">
-                                                        {{ $kelurahan['kelurahan'] }}
+                                            <optgroup label="{{ $kelurahanGroup['name'] }}">
+                                                @foreach ($kelurahanGroup['villages'] as $kelurahan)
+                                                    <option slot="{{ $kelurahan['polyline'] }}" value="{{ $kelurahan['id'] }}">
+                                                        {{ $kelurahan['name'] }}
                                                     </option>
                                                 @endforeach
                                             </optgroup>
@@ -127,9 +128,9 @@
             <h5 class="mb-3">Daftar Perencanaan Jalan</h5>
             <div class="card tbl-card">
                 <div class="card-body">
-
                     <div class="row">
-                        <div class="col-sm-4">
+                        <div class="col-sm-3" id="mapping-table-export"></div>
+                        <div class="col-sm-3">
                             <div class="form-group">
                                 <select class="form-control" id="mapping-year">
                                     @foreach ($years as $year)
@@ -138,17 +139,54 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="form-group" id="mapping-table-length"></div>
                         </div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-3">
                             <div class="form-group" id="mapping-table-filter"></div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="dt-responsive table-responsive">
-                            <table id="mapping-table" class="table table-striped table-bordered nowrap"></table>
+                            <table id="mapping-table" class="table table-striped table-bordered nowrap">
+                                <thead>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Lokasi</th>
+                                        <th>Panjang</th>
+                                        <th>Lebar</th>
+                                        <th>Kondisi</th>
+                                        <th>Sumber Usulan</th>
+                                        <th>Tahun Usulan</th>
+                                        <th>Tahun Perencanaan</th>
+                                        <th>Tahun Eksekusi</th>
+                                        <th>Jenis</th>
+                                        <th>Perkerasan</th>
+                                        <th>Kepadatan Penduduk</th>
+                                        <th>Status</th>
+                                        <th><i class="ti ti-settings-bolt"></i></th>
+                                    </tr>
+                                </thead>
+                                <tfoot>
+                                    <tr>
+                                        <th>Nama</th>
+                                        <th>Lokasi</th>
+                                        <th>Panjang</th>
+                                        <th>Lebar</th>
+                                        <th>Kondisi</th>
+                                        <th>Sumber Usulan</th>
+                                        <th>Tahun Usulan</th>
+                                        <th>Tahun Perencanaan</th>
+                                        <th>Tahun Eksekusi</th>
+                                        <th>Jenis</th>
+                                        <th>Perkerasan</th>
+                                        <th>Kepadatan Penduduk</th>
+                                        <th>Status</th>
+                                        <th></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
                         </div>
                     </div>
 
@@ -173,10 +211,20 @@
                                 <div class="form-group">
                                     <select class="form-control" id="chart-year">
                                         @foreach ($years as $year)
-                                            <option value="{{ $year }}" {{ $year == now()->year ? 'selected' : '' }}>{{ $year }}</option>
+                                        <option value="{{ $year }}" {{ $year == now()->year ? 'selected' : '' }}>{{ $year }}</option>
                                         @endforeach
                                     </select>
                                 </div>
+                            </div>
+                            <div class="col-sm-4">
+                                <select name="chart-district" id="chart-district" class="select2 form-control">
+                                    <option value="" selected>Pilih semua Kecamatan</option>
+                                    @foreach ($villages as $kecamatan)
+                                        <option value="{{ $kecamatan['id'] }}">
+                                            {{ $kecamatan['name'] }}
+                                        </option>
+                                    @endforeach
+                                </select>
                             </div>
                         </div>
                     </div>

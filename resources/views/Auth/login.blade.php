@@ -45,7 +45,7 @@
     <div class="auth-main">
         <div class="auth-wrapper v3">
             <div class="auth-form">
-                <div class="auth-header">
+                <div class="auth-header justify-content-center align-items-center">
                     <a href="/"><img src="{{ asset('public/assets/images/favicon.png') }}" alt="img"></a>
                 </div>
                 <div class="card my-5">
