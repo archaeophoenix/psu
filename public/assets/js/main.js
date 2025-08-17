@@ -73,11 +73,12 @@ function loadTable(mappingYear = '') {
             data: { tahun: mappingYear } // kirim filter sebagai parameter GET
         },
         columns: [
-            { data: 'name', title: 'Nama' },
-            { data: 'location', title: 'Lokasi' },
-            { data: 'length', title: 'Panjang' },
-            { data: 'width', title: 'Lebar' },
-            { data: 'condition', title: 'Kondisi',
+            { data: 'name', width: '220px', title: 'Nama' },
+            { data: 'location', width: '120px', title: 'Lokasi' },
+            { data: 'district', width: '120px', title: 'Kecamatan' },
+            { data: 'length', width: '90px', title: 'Panjang' },
+            { data: 'width', width: '90px', title: 'Lebar' },
+            { data: 'condition', width: '120px', title: 'Kondisi',
                 render: customSort({
                         'Baik': 0,
                         'Rusak Ringan': 1,
@@ -91,12 +92,12 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
-            { data: 'proposal_source', title: 'Sumber Usulan' },
-            { data: 'proposal_year', title: 'Tahun Usulan' },
-            { data: 'planning_year', title: 'Tahun Perencanaan' },
-            { data: 'execution_year', title: 'Tahun Eksekusi' },
-            { data: 'type', title: 'Jenis' },
-            { data: 'paving', title: 'Perkerasan',
+            { data: 'proposal_source', width: '120px', title: 'Sumber Usulan' },
+            { data: 'proposal_year', width: '120px', title: 'Tahun Usulan' },
+            { data: 'planning_year', width: '120px', title: 'Tahun Perencanaan' },
+            { data: 'execution_year', width: '120px', title: 'Tahun Eksekusi' },
+            { data: 'type', width: '120px', title: 'Jenis' },
+            { data: 'paving', width: '120px', title: 'Perkerasan',
 
                 render: customSort({
                         'Tanah': 0,
@@ -110,7 +111,7 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
-            { data: 'population', title: 'Kepadatan Penduduk',
+            { data: 'population', width: '120px', title: 'Kepadatan Penduduk',
 
                 render: customSort({
                         'Tinggi': 0,
@@ -124,7 +125,7 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
-            { data: 'status', title: 'Status',
+            { data: 'status', width: '120px', title: 'Status',
                 render: customSort({
                         'Eksisting': 0,
                         'Valid': 1,
@@ -139,7 +140,7 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
-            { data: 'null', title: '<i class="ti ti-settings-bolt"></i>',
+            { data: 'null', width: '90px', title: '<i class="ti ti-settings-bolt"></i>',
                 orderable: false,
                 searchable: false,
                 render: function (data, type, row) {

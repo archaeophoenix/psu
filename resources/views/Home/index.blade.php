@@ -154,6 +154,7 @@
                                     <tr>
                                         <th>Nama</th>
                                         <th>Lokasi</th>
+                                        <th>Kecamatan</th>
                                         <th>Panjang</th>
                                         <th>Lebar</th>
                                         <th>Kondisi</th>
@@ -172,6 +173,7 @@
                                     <tr>
                                         <th>Nama</th>
                                         <th>Lokasi</th>
+                                        <th>Kecamatan</th>
                                         <th>Panjang</th>
                                         <th>Lebar</th>
                                         <th>Kondisi</th>
@@ -191,8 +193,8 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-sm-8">&nbsp;</div>
-                        <div class="col-sm-4">
+                        <div class="col-sm-6">&nbsp;</div>
+                        <div class="col-sm-6">
                             <div class="form-group" id="mapping-table-paginate"></div>
                         </div>
                     </div>

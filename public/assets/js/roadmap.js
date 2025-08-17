@@ -66,7 +66,7 @@ class RoadMap {
             case "Baik": return '#4CAF50';
             case "Rusak Ringan": return '#FFB300';
             case "Rusak Sedang": return '#E64A19';
-            case "Rusak Berat": return '#D50000';
+            case "Rusak Berat": return '#330f10';
             default: return '#6c757d';
         }
     }
