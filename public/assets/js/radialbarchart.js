@@ -44,7 +44,7 @@ class RadialBarChart {
                     }
                 }
             },
-            colors: ['#1890ff', '#52c41a', '#faad14', '#ff4d4f'],
+            colors: ['#aee2f0', '#92c4a1', '#ffc000', '#9e6166'],
             series: this.getPercentageSeries(),
             labels: this.labels,
             legend: {
