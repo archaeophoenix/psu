@@ -6,6 +6,17 @@ class RadialBarChart {
         this.chart = null;
     }
 
+    // Hitung persentase
+    getPercentageSeries() {
+        const total = this.series.reduce((a, b) => a + b, 0);
+        return this.series.map(v => total ? ((v / total) * 100).toFixed(1) : 0);
+    }
+
+    // Hitung total semua value asli
+    getTotal() {
+        return this.series.reduce((a, b) => a + b, 0);
+    }
+
     render() {
         const options = {
             chart: {
@@ -23,46 +34,35 @@ class RadialBarChart {
                         background: 'transparent'
                     },
                     dataLabels: {
-                        name: {
-                            show: false
-                        },
-                        value: {
-                            show: false
+                        name: { show: false },
+                        value: { show: false },
+                        total: {
+                            show: true,
+                            label: 'Total',
+                            formatter: () => this.getTotal()
                         }
                     }
                 }
             },
-            colors: ['#aee2f0', '#92c4a1', '#ffc000', '#9e6166'],
-            series: this.series,
+            colors: ['#1890ff', '#52c41a', '#faad14', '#ff4d4f'],
+            series: this.getPercentageSeries(),
             labels: this.labels,
             legend: {
                 show: true,
                 floating: true,
                 fontSize: '14px',
                 position: 'left',
-                offsetX: 0,
-                offsetY: 0,
                 labels: {
                     useSeriesColors: true
                 },
-                markers: {
-                    size: 0
-                },
+                markers: { size: 0 },
                 formatter: (seriesName, opts) => {
-                    return seriesName + ': ' + opts.w.globals.series[opts.seriesIndex];
-                },
-                itemMargin: {
-                    horizontal: 1
+                    const originalValue = this.series[opts.seriesIndex];
+                    const total = this.getTotal();
+                    const percentValue = total ? ((originalValue / total) * 100).toFixed(1) : 0;
+                    return `${seriesName}: ${percentValue}% (${originalValue})`;
                 }
-            },
-            responsive: [{
-                breakpoint: 480,
-                options: {
-                    legend: {
-                        show: false
-                    }
-                }
-            }]
+            }
         };
 
         this.chart = new ApexCharts(document.querySelector(this.selector), options);
@@ -70,9 +70,21 @@ class RadialBarChart {
     }
 
     update(series = [], labels = []) {
+        this.series = series;
+        this.labels = labels;
+
         this.chart.updateOptions({
-            series,
-            labels
+            series: this.getPercentageSeries(),
+            labels: this.labels,
+            plotOptions: {
+                radialBar: {
+                    dataLabels: {
+                        total: {
+                            formatter: () => this.getTotal()
+                        }
+                    }
+                }
+            }
         });
     }
 }

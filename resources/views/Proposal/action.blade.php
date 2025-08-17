@@ -110,7 +110,7 @@
                                     </div>
                                     <div class="col-md-3" style="visibility: hidden;"></div>
                                     <hr style="visibility: hidden">
-                                    <div class="col-md-6">
+                                    {{-- <div class="col-md-6">
                                         <div class="card-group">
                                             <div class="card" id="planning">
                                                 <iframe src="{{ asset('public/' . $mapping['planning']) }}" class="img-fluid" alt="..." style="max-height: 160px;"></iframe>
@@ -138,7 +138,7 @@
                                                 <a href="{{ asset($mapping['budget']) }}" id="budget_download" target="_blank"><p class="text-center align-middle"><strong>ESTIMASI BIAYA</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i class="ti ti-download"></i></p></a>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                             <div class="col-lg-6 col-sm-12">

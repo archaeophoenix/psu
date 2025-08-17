@@ -51,7 +51,7 @@ class BarChart {
                     vertical: 5
                 }
             },
-            colors: ['#aee2f0', '#ffc000'],
+            colors: ['#ffc000', '#aee2f0'],
             series: this.series,
             xaxis: {
                 categories: this.categories

@@ -6,10 +6,10 @@
 
         {{-- <span class="anchor" id="beranda"></span> --}}
         <div class="col-md-12 col-xl-12 page-header tab-pane fade show active" role="tabpanel" id="pills-home" aria-labelledby="pills-home-tab">
-            <div class="col-md-12 bg-container" style="">
+            <div class="col-sm-12 d-block bg-container" style="">
                 {{-- background-image: url('{{ asset('public/assets/images/bg.svg') }}');background-repeat:no-repeat; background-position:center; width:100%; --}}
                 <div class="row bg-content">
-                    <div class="col-md-12 col-xl-6 d-none d-sm-none d-md-block">
+                    <div class="col-md-6 col-xl-6 d-block">
                         <div class="card">
                             <div class="card-body">
                                 Si Peta PSU adalah Sistem Informasi Perencanaan dan Pengelolaan Infrastruktur Jalan dan Drainase yang bertujuan untuk meningkatkan efisiensi dan transparansi dalam perencanaan infrastruktur di wilayah perkotaan.
@@ -18,7 +18,7 @@
                     </div>
 
                     @foreach ($counts as $count)
-                    <div class="col-md-6 col-xl-3 d-none d-sm-none d-md-block">
+                    <div class="col-md-3 col-xl-3 d-block">
                         <div class="card">
                             <div class="card-body">
                                 <div class="row align-items-center">
