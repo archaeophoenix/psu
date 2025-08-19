@@ -41,7 +41,7 @@ class DatasController extends Controller
                 'condition' => $mapping->condition,
                 'paving' => $mapping->paving,
                 'status' => $mapping->status,
-                'polyline' => json_encode($mapping->polyline_array),
+                'polyline' => json_encode($mapping->geometry),
                 'location' => $mapping->village_name,
                 'village_id' => $mapping->village_id,
                 'district' => $mapping->district_name,

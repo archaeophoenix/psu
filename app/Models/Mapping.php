@@ -27,6 +27,17 @@ class Mapping extends Model
             ", [$year]);
     }
 
+    public function getGeometryAttribute()
+    {
+        // Ambil GeoJSON langsung dari database
+        $geojson = DB::table($this->table)
+            ->where('id', $this->id)
+            ->selectRaw('ST_AsGeoJSON(polyline) as geojson')
+            ->value('geojson');
+
+        return json_decode($geojson, true);
+    }
+
     function parseMultiPoint($wkt) {
         if (str_contains($wkt, '((')) {
             // Format MySQL
