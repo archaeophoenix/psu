@@ -57,12 +57,24 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-12 col-xl-6">
-                            <div id="sales-report-chart"></div>
-                        </div>
-                        <div class="col-md-12 col-xl-6">
+
+                        <div class="col-sm-12 col-md-5 col-xl-6">
+                            <div class="card-header"><h5>Kondisi Jalan</h5></div>
                             <div id="radialBar-chart-2" style="padding-top: 78px;"></div>
                         </div>
+                        <div class="col-sm-12 col-md-5 col-xl-6">
+                            <div class="card-header"><h5>Kondisi Drainase</h5></div>
+                            <div id="drainase-chart-2" style="padding-top: 78px;"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-xl-6">
+                            <div class="card-header"><h5>Status Jalan</h5></div>
+                            <div id="sales-report-chart"></div>
+                        </div>
+                        <div class="col-sm-12 col-md-5 col-xl-6">
+                            <div class="card-header"><h5>Status Drainase</h5></div>
+                            <div id="drainase-report-chart"></div>
+                        </div>
+
                     </div>
                 </div>
             </div>

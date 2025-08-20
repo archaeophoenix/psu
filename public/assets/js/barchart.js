@@ -9,49 +9,29 @@ class BarChart {
     render() {
         const options = {
             chart: {
+                height: 500,
                 type: 'bar',
-                height: 430,
-                toolbar: {
-                    show: false
-                }
+                stacked: true
             },
             plotOptions: {
                 bar: {
-                    columnWidth: '60%',
-                    borderRadius: 4
+                    horizontal: false
                 }
             },
             stroke: {
-                show: true,
-                width: 15,
-                colors: ['transparent']
+                width: 1,
+                colors: ['#fff']
             },
-            dataLabels: {
-                enabled: false
+            fill: {
+                opacity: 1
             },
+
             legend: {
                 position: 'top',
-                horizontalAlign: 'right',
-                show: true,
-                fontFamily: `'Bebas Neue', sans-serif`,
-                offsetX: 10,
-                offsetY: 10,
-                labels: {
-                    useSeriesColors: false
-                },
-                markers: {
-                    width: 15,
-                    height: 10,
-                    radius: '50%',
-                    offsexX: 2,
-                    offsexY: 2
-                },
-                itemMargin: {
-                    horizontal: 15,
-                    vertical: 5
-                }
+                horizontalAlign: 'left',
+                offsetX: 40
             },
-            colors: ['#ffc000', '#aee2f0'],
+            colors: ['#9e6166', '#ffc000', '#92c4a1', '#aee2f0'],
             series: this.series,
             xaxis: {
                 categories: this.categories
@@ -65,10 +45,7 @@ class BarChart {
     update(series = [], categories = []) {
         this.chart.updateOptions({
             series,
-            xaxis: { categories },
-            plotOptions: {
-                bar: { columnWidth: '45%' }
-            }
+            xaxis: { categories }
         });
     }
 }

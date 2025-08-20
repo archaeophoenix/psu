@@ -1,5 +1,7 @@
     const radialChart = new RadialBarChart('#radialBar-chart-2', [], []);
+    const drainRadial = new RadialBarChart('#drainase-chart-2', [], []);
     const barChart = new BarChart('#sales-report-chart', [], []);
+    const drainChart = new BarChart('#drainase-report-chart', [], []);
     const baseUrl = window.Laravel.baseUrl;
     let villageTable;
     let table;
@@ -293,19 +295,14 @@ async function loadChartData(filters = {}) {
     try {
         const params = new URLSearchParams(filters).toString();
         const data = await $.get(`chart-data?${params}`);
+        const condition = ['Baik', 'Rusak Ringan', 'Rusak Sedang', 'Rusak Berat'];
 
-        radialChart.update(
-            data.radial,
-            ['Baik', 'Rusak Ringan', 'Rusak Sedang', 'Rusak Berat']
-        );
+        radialChart.update(data.radial.jalan, condition);
+        drainRadial.update(data.radial.drainase, condition);
 
-        barChart.update(
-            [
-                { name: 'Jalan', data: data.bar.jalan },
-                { name: 'Drainase', data: data.bar.drainase }
-            ],
-            data.bar.bulan
-        );
+        barChart.update(data.bar.jalan, data.bar.bulan);
+        drainChart.update(data.bar.drainase, data.bar.bulan);
+
     } catch (error) {
         showAlert('Gagal memuat data chart', 'danger');
         console.error("Gagal memuat data chart:", error);
@@ -316,7 +313,9 @@ $(document).ready(function() {
 
     if($('#chart-year').length > 0){
         radialChart.render();
+        drainRadial.render();
         barChart.render();
+        drainChart.render();
         loadChartData();
     }
 
