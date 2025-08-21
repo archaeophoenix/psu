@@ -31,9 +31,15 @@ class DatasController extends Controller
     {
         $year = $request->query('tahun', Carbon::now()->year);
 
-        $mappings = Mapping::with('village.district')->where('proposal_year', $year)->get()->map(function ($mapping) {
+        $mappings = Mapping::with('village.district')->where('proposal_year', $year)
+            ->orderByRaw("FIELD(status, 'Eksisting', 'Valid', 'Usulan', 'Perencanaan')")
+            ->orderByRaw("FIELD(paving, 'Tanah', 'Beton', 'Aspal')")
+            ->orderByRaw("FIELD(`condition`, 'Rusak Berat', 'Rusak Sedang', 'Rusak Ringan', 'Baik')")
+            ->orderByRaw("FIELD(population, 'Tinggi', 'Sedang', 'Rendah')")
+            ->get()->map(function ($mapping, $idx) {
             return [
                 'id' => $mapping->id,
+                'prior' => $idx + 1,
                 'name' => $mapping->name,
                 'type' => $mapping->type,
                 'length' => $mapping->length,
@@ -41,7 +47,8 @@ class DatasController extends Controller
                 'condition' => $mapping->condition,
                 'paving' => $mapping->paving,
                 'status' => $mapping->status,
-                'polyline' => json_encode($mapping->geometry),
+                'population' => $mapping->population,
+                'location' => $mapping->population,
                 'location' => $mapping->village_name,
                 'village_id' => $mapping->village_id,
                 'district' => $mapping->district_name,
@@ -53,7 +60,7 @@ class DatasController extends Controller
                 'planning' => $mapping->planning,
                 'budget' => $mapping->budget,
                 'photo' => $mapping->photo,
-                'population' => $mapping->population
+                'polyline' => json_encode($mapping->geometry)
             ];
         });
 

@@ -42,7 +42,7 @@ crossorigin=""></script>
 <script src="{{ asset('public/assets/js/map.js') }}"></script>
 <script src="{{ asset('public/assets/js/main.js') }}"></script>
 <script>
-/*let ajaxRequestCount = 0;
+let ajaxRequestCount = 0;
 
 $(document).on({
     ajaxStart: function () {
@@ -55,7 +55,7 @@ $(document).on({
             $('#loadStaticBackdrop').modal('hide');
         }
     }
-});*/
+});
 </script>
 <script>
     layout_change('light');

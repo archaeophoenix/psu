@@ -60,7 +60,7 @@ class RadialBarChart {
                     const originalValue = this.series[opts.seriesIndex];
                     const total = this.getTotal();
                     const percentValue = total ? ((originalValue / total) * 100).toFixed(1) : 0;
-                    return `${seriesName}: ${percentValue}% (${originalValue})`;
+                    return `${seriesName}: ${originalValue} `; //(${percentValue}%)
                 }
             }
         };

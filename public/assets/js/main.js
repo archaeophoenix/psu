@@ -21,7 +21,10 @@ function customSort(order, badge) {
         if (type === 'sort') {
             return order[data] ?? 999;
         }
-        return `<span class="badge bg-${badge[data] ?? 'secondary'} text-capitalize">${data}</span>`;
+        if (type === 'display') {
+            return `<span class="badge bg-${badge[data] ?? 'secondary'} text-capitalize">${data}</span>`;
+        }
+        return data;
     };
 }
 
@@ -75,17 +78,19 @@ function loadTable(mappingYear = '') {
             data: { tahun: mappingYear } // kirim filter sebagai parameter GET
         },
         columns: [
+            { data: 'prior', width: '40px', title: '#' },
             { data: 'name', width: '220px', title: 'Nama' },
             { data: 'location', width: '120px', title: 'Lokasi' },
             { data: 'district', width: '120px', title: 'Kecamatan' },
             { data: 'length', width: '90px', title: 'Panjang' },
             { data: 'width', width: '90px', title: 'Lebar' },
+            { data: 'type', width: '120px', title: 'Jenis' },
             { data: 'condition', width: '120px', title: 'Kondisi',
                 render: customSort({
-                        'Baik': 0,
-                        'Rusak Ringan': 1,
-                        'Rusak Sedang': 2,
-                        'Rusak Berat': 3
+                        'Rusak Berat': 0,
+                        'Rusak Sedang': 1,
+                        'Rusak Ringan': 2,
+                        'Baik': 3
                     }, {
                         'Baik': 'success',
                         'Rusak Ringan': 'warning',
@@ -94,13 +99,7 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
-            { data: 'proposal_source', width: '120px', title: 'Sumber Usulan' },
-            { data: 'proposal_year', width: '120px', title: 'Tahun Usulan' },
-            { data: 'planning_year', width: '120px', title: 'Tahun Perencanaan' },
-            { data: 'execution_year', width: '120px', title: 'Tahun Eksekusi' },
-            { data: 'type', width: '120px', title: 'Jenis' },
             { data: 'paving', width: '120px', title: 'Perkerasan',
-
                 render: customSort({
                         'Tanah': 0,
                         'Beton': 1,
@@ -114,7 +113,6 @@ function loadTable(mappingYear = '') {
                 )
             },
             { data: 'population', width: '120px', title: 'Kepadatan Penduduk',
-
                 render: customSort({
                         'Tinggi': 0,
                         'Sedang': 1,
@@ -142,6 +140,10 @@ function loadTable(mappingYear = '') {
                     }
                 )
             },
+            { data: 'proposal_source', width: '120px', title: 'Sumber Usulan' },
+            { data: 'proposal_year', width: '120px', title: 'Tahun Usulan' },
+            { data: 'planning_year', width: '120px', title: 'Tahun Perencanaan' },
+            { data: 'execution_year', width: '120px', title: 'Tahun Eksekusi' },
             { data: 'null', width: '90px', title: '<i class="ti ti-settings-bolt"></i>',
                 orderable: false,
                 searchable: false,
@@ -158,7 +160,8 @@ function loadTable(mappingYear = '') {
                 }
             }
         ],
-        "dom": '<"top"f>rt<"bottom"lp>', //adjust the locations of defaults
+        order: [[10, 'asc']],
+        "dom": '<"top"f>rt<"bottom"lp>',
         buttons: [
             {
                 extend: 'excelHtml5',
@@ -225,8 +228,6 @@ function loadTable(mappingYear = '') {
         },
         language: { search: '', searchPlaceholder: "Pencarian...", lengthMenu: "_MENU_" },
     });
-
-
 }
 
 function loadArticle(articleYear = '') {
@@ -297,8 +298,8 @@ async function loadChartData(filters = {}) {
         const data = await $.get(`chart-data?${params}`);
         const condition = ['Baik', 'Rusak Ringan', 'Rusak Sedang', 'Rusak Berat'];
 
-        radialChart.update(data.radial.jalan, condition);
-        drainRadial.update(data.radial.drainase, condition);
+        radialChart.update(data.radial.static, condition);
+        drainRadial.update(data.radial.dinamic, condition);
 
         barChart.update(data.bar.jalan, data.bar.bulan);
         drainChart.update(data.bar.drainase, data.bar.bulan);
@@ -349,21 +350,18 @@ $(document).ready(function() {
         });
     });
 
-    $('#chart-year').on('change', function () {
+    $('#chart-year, #chart-district, #chart-type,#chart-status').on('change', function () {
         const year = $('#chart-year').val();
         const district = $('#chart-district').val();
+        const type = $('#chart-type').val();
+        const status = $('#chart-status').val();
+        $('.type-chart').html(type);
+        $('#status-chart').html(status);
         loadChartData({
             tahun : year,
-            kecamatan : district
-        });
-    });
-
-    $('#chart-district').on('change', function () {
-        const year = $('#chart-year').val();
-        const district = $('#chart-district').val();
-        loadChartData({
-            tahun : year,
-            kecamatan : district
+            kecamatan : district,
+            type: type,
+            status: status
         });
     });
 

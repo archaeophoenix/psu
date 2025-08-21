@@ -40,39 +40,41 @@
                             <table id="mapping-table" class="table table-striped table-bordered nowrap">
                                 <thead>
                                     <tr>
+                                        <th>#</th>
                                         <th>Nama</th>
                                         <th>Lokasi</th>
                                         <th>Kecamatan</th>
                                         <th>Panjang</th>
                                         <th>Lebar</th>
+                                        <th>Jenis</th>
                                         <th>Kondisi</th>
+                                        <th>Perkerasan</th>
+                                        <th>Kepadatan Penduduk</th>
+                                        <th>Status</th>
                                         <th>Sumber Usulan</th>
                                         <th>Tahun Usulan</th>
                                         <th>Tahun Perencanaan</th>
                                         <th>Tahun Eksekusi</th>
-                                        <th>Jenis</th>
-                                        <th>Perkerasan</th>
-                                        <th>Kepadatan Penduduk</th>
-                                        <th>Status</th>
                                         <th><i class="ti ti-settings-bolt"></i></th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
+                                        <th>#</th>
                                         <th>Nama</th>
                                         <th>Lokasi</th>
                                         <th>Kecamatan</th>
                                         <th>Panjang</th>
                                         <th>Lebar</th>
+                                        <th>Jenis</th>
                                         <th>Kondisi</th>
+                                        <th>Perkerasan</th>
+                                        <th>Kepadatan Penduduk</th>
+                                        <th>Status</th>
                                         <th>Sumber Usulan</th>
                                         <th>Tahun Usulan</th>
                                         <th>Tahun Perencanaan</th>
                                         <th>Tahun Eksekusi</th>
-                                        <th>Jenis</th>
-                                        <th>Perkerasan</th>
-                                        <th>Kepadatan Penduduk</th>
-                                        <th>Status</th>
                                         <th></th>
                                     </tr>
                                 </tfoot>

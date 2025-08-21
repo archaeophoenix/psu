@@ -34,16 +34,16 @@
                 <div class="card-body">
                     <div class="row">
                         <div class="row">
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <div class="form-group">
                                     <select class="form-control" id="chart-year">
                                         @foreach ($years as $year)
-                                            <option value="{{ $year }}" {{ $year == now()->year ? 'selected' : '' }}>{{ $year }}</option>
+                                        <option value="{{ $year }}" {{ $year == now()->year ? 'selected' : '' }}>{{ $year }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <select name="chart-district" id="chart-district" class="select2 form-control">
                                     <option value="" selected>Pilih semua Kecamatan</option>
                                     @foreach ($villages as $kecamatan)
@@ -53,17 +53,33 @@
                                     @endforeach
                                 </select>
                             </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <select class="form-control" name="chart-type" id="chart-type">
+                                        <option value="Jalan" selected>Jalan</option>
+                                        <option value="Drainase">Drainase</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <select class="form-control" name="chart-status" id="chart-status">
+                                        <option value="Usulan" selected>Usulan</option>
+                                        <option value="Perencanaan">Perencanaan</option>
+                                    </select>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
                     <div class="row">
 
                         <div class="col-sm-12 col-md-5 col-xl-6">
-                            <div class="card-header"><h5>Kondisi Jalan</h5></div>
+                            <div class="card-header"><h5>Semua Kondisi <a class="type-chart">Jalan</a> Dari Data Eksisting</h5></div>
                             <div id="radialBar-chart-2" style="padding-top: 78px;"></div>
                         </div>
                         <div class="col-sm-12 col-md-5 col-xl-6">
-                            <div class="card-header"><h5>Kondisi Drainase</h5></div>
+                            <div class="card-header"><h5>Semua Kondisi <a class="type-chart">Jalan</a> Dari Data <a id="status-chart">Usulan</a></h5></div>
                             <div id="drainase-chart-2" style="padding-top: 78px;"></div>
                         </div>
                         <div class="col-sm-12 col-md-5 col-xl-6">

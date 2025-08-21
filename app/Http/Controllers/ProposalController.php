@@ -153,7 +153,7 @@ class ProposalController extends Controller
             return "{$point[1]} {$point[0]}"; // lng lat tanpa ()
         }, $polyline);
 
-        $wkt = 'MULTIPOINT(' . implode(',', $wktPoints) . ')';
+        $wkt = 'LINESTRING(' . implode(',', $wktPoints) . ')';
 
         $mapping = new Mapping();
         $mapping->district_id = $request->district_id;
